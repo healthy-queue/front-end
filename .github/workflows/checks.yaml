@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   lint:
+    name: Lint
     run-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,6 +31,7 @@ jobs:
       - name: Run eslint
         run: npm run lint
   unit-tests:
+    name: Unit
     run-on: ubuntu-latest
     steps:
       - name: Checkout
