@@ -2,11 +2,12 @@
 name: Checks
 
 on:
-  # Run on pushes to main
+  # Run on pushes to main and dev
   push: 
     branches: [ main, dev ]
-  # Run any pull request
+  # Run on pull requests to main and dev
   pull_request:
+    branches: [ main, dev]
 
 # Cancel any in progress run of the workflow for a given PR
 concurrency:
@@ -15,7 +16,8 @@ concurrency:
 
 jobs:
   lint:
-    run-on: ubuntu-latest
+    name: Lint
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -29,7 +31,8 @@ jobs:
       - name: Run eslint
         run: npm run lint
   unit-tests:
-    run-on: ubuntu-latest
+    name: Unit
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
