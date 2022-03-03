@@ -2,9 +2,6 @@
 name: Checks
 
 on:
-  # Run on pushes to main and dev
-  push: 
-    branches: [ main, dev ]
   # Run on pull requests to main and dev
   pull_request:
     branches: [ main, dev]
