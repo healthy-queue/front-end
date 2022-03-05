@@ -1,13 +1,14 @@
+import { Auth0Provider } from "@auth0/auth0-react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from "react-router-dom";
 import { persistStore } from "redux-persist";
 import { PersistGate } from 'redux-persist/integration/react';
 import App from './App/App';
 import store from './App/store';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import { Auth0Provider } from "@auth0/auth0-react"
 
 let persistor = persistStore(store)
 
@@ -20,7 +21,9 @@ ReactDOM.render(
     >
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </PersistGate>
       </Provider>
     </Auth0Provider>

@@ -1,11 +1,11 @@
 import Header from '../Components/Header/Header';
-import logo from '../logo.svg';
-import './App.scss';
+import MyRouter from '../Router/Router';
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <MyRouter />
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import App from './App';
+import About from './About';
 
 test('renders welcome text', () => {
-  render(<App />, { wrapper: MemoryRouter });
-  const el = screen.getByText(/Welcome to the homepage!/i);
+  render(<About />, { wrapper: MemoryRouter });
+  const el = screen.getByText(/Who are we[?]/i);
   expect(el).toBeInTheDocument();
 });
