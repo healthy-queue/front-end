@@ -72,4 +72,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Sources
 
-[Hamburger Menu with a Side of React Hooks and Styled Components](https://css-tricks.com/hamburger-menu-with-a-side-of-react-hooks-and-styled-components/)
+[Material UI Menu using routes](https://stackoverflow.com/a/69330609)
+
+[Material-UI Theme Creator](https://bareynol.github.io/mui-theme-creator/)
+
+[Theming](https://mui.com/customization/theming/)
