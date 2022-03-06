@@ -9,6 +9,8 @@ import App from './App/App';
 import store from './App/store';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from "@mui/material";
+import { theme } from './Constants/theme'
 
 let persistor = persistStore(store)
 
@@ -22,7 +24,9 @@ ReactDOM.render(
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <BrowserRouter>
-            <App />
+            <ThemeProvider theme={theme}>
+              <App />
+            </ThemeProvider>
           </BrowserRouter>
         </PersistGate>
       </Provider>
