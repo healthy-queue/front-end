@@ -12,7 +12,6 @@ export const patientQueueSlice = createSlice({
   reducers: {
     setActivePatient: (state, action) => {
       console.log('Payload', action.payload)
-      console.log('State', state.queue)
       state.activePatient = state.queue.find(patient => patient.id === action.payload)
     },
   }

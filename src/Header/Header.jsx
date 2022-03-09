@@ -35,21 +35,6 @@ const Header = () => {
   // https://manage.auth0.com/dashboard/us/<Auth0 Domain>/users
   const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
 
-  const loginLogout = () => {
-    { isAuthenticated 
-      ? <MenuItem
-        onClick={() => logout({ returnTo: window.location.origin })}
-        >
-        Logout
-        </MenuItem>
-      : <MenuItem
-          onClick={() => loginWithRedirect()}
-        >
-        Login
-      </MenuItem>
-    }
-  }
-
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
