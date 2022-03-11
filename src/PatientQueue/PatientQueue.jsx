@@ -8,7 +8,7 @@ const PatientQueue = () => {
   // const queueData = useSelector(state => state.patientQueue.queue)
   // const selectedPatient = useSelector(state => state.patientQueue.activePatient)
   // const dispatch = useDispatch()
-
+  console.log('Patient Queue')
   return (
     <>
       <Container

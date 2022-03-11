@@ -77,9 +77,11 @@ export default function QueueTabs() {
           <Tab onClick={()=>console.log('green clicked')} >Green</Tab>
         </TabsList>
       </TabsUnstyled>
-      <RedQueue />
-      <YellowQueue />
-      <GreenQueue />
+      {/* 
+        <RedQueue />
+        <YellowQueue />
+      */}
+    <GreenQueue />
     </>
   );
 }
