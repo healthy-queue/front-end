@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import smallButton from './Button';
+import SmallButton from './Button'
+import { classes } from '../Constants/theme'
+
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -12,9 +14,16 @@ const columns = [
   { field: 'group', headerName: 'Group', type: 'string',width: 90 },
   { field: 'created', headerName: 'Created', type: 'number', width: 90 },
   { field: 'updated', headerName: 'Updated', type: 'number', width: 90 },
-  { field: 'button', headerName: '', type: 'number', width: 90, renderCell: smallButton,
-  disableClickEventBubbling: true }
+  { field: 'button', 
+    headerName: 'edit', 
+    type: 'number',
+    renderCell: () => (<SmallButton />),
+    width: 90, 
+    // disableClickEventBubbling: true 
+  }
 ];
+
+// have function that injects data 
 
 const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', dob: '1-1-01', email: 'js@aol.com', carrier: 'BCBS', group: '1234A', created: '20:15:45', updated: '20:15:45'},
@@ -30,13 +39,23 @@ const rows = [
 
 export default function DataTable() {
   return (
-    <div style={{ height: 400, width: '60%' }}>
+    <div style={{ height: 400, width: '100%' }}>
       <DataGrid
+        autoHeight
         rows={rows}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
+        sx={{
+          borderRadius: 3,
+          boxShadow: 2,
+          border: 2,
+          borderColor: 'primary.light',
+          '& .MuiDataGrid-cell:hover': {
+            color: 'primary.main',
+          },
+        }}
       />
     </div>
   );

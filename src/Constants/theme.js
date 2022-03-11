@@ -14,15 +14,9 @@ export const theme = createTheme({
 });
 
 export const useStyles = makeStyles((theme) => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-    },
-  },
   button: {
     fontSize: 15,
+    width: 11,
     borderRadius: 10,
     boxShadow: '1px 1px 1px 1px rgba(30, 203, 243, .3)',
     '&:hover':{
