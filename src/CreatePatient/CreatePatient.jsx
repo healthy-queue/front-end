@@ -8,15 +8,17 @@ import './CreatePatient.scss'
 const CreatePatient = () => {
   const { isAuthenticated, user } = useAuth0();
   const { register, handleSubmit, formState: { errors } } = useForm();
+  
   const onSubmit = data => console.log(data);
 
   // TODO: lets see about using roles more better - Set user roles in Auth0
   // https://manage.auth0.com/dashboard/us/<Auth0 Domain>/users
   const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
   console.log(userRole)
+  
   return (
-    isAuthenticated && userRole === 'general'
-    // isAuthenticated && userRole === 'triage'
+    // isAuthenticated && userRole === 'general'
+    isAuthenticated && userRole === 'triage'
       ? <>
           <h2> Add Patient Info </h2>
           <form onSubmit={handleSubmit(onSubmit)}>

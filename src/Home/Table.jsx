@@ -3,7 +3,6 @@ import { DataGrid } from '@mui/x-data-grid';
 import SmallButton from './Button'
 import { classes } from '../Constants/theme'
 
-
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
   { field: 'firstName', headerName: 'First name', width: 130 },
@@ -14,17 +13,12 @@ const columns = [
   { field: 'group', headerName: 'Group', type: 'string',width: 90 },
   { field: 'created', headerName: 'Created', type: 'number', width: 90 },
   { field: 'updated', headerName: 'Updated', type: 'number', width: 90 },
-  { field: 'button', 
-    headerName: 'edit', 
-    type: 'number',
-    renderCell: () => (<SmallButton />),
-    width: 90, 
-    // disableClickEventBubbling: true 
-  }
+  { field: 'button', headerName: 'edit', type: 'number',renderCell: () => (<SmallButton />),width: 90, disableClickEventBubbling: true },
+
+  // this column --> add visit form to populate db visit table and add them to the queue 
+  // only need non nullable fields: patient_id and primary_aliment        
+  { field: 'button-1', headerName: 'add visit', type: 'number', width: 90,renderCell: () => (<SmallButton />), disableClickEventBubbling: true  }
 ];
-
-// have function that injects data 
-
 const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', dob: '1-1-01', email: 'js@aol.com', carrier: 'BCBS', group: '1234A', created: '20:15:45', updated: '20:15:45'},
   { id: 2, lastName: 'Lannister', firstName: 'Cersei', dob: '7-3-99', email: 'cl@aol.com', carrier: 'Aetna', group: '1234A', created: '20:15:45', updated: '20:15:45' },
@@ -44,9 +38,8 @@ export default function DataTable() {
         autoHeight
         rows={rows}
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
+        pageSize={10}
+        rowsPerPageOptions={[10]}
         sx={{
           borderRadius: 3,
           boxShadow: 2,
