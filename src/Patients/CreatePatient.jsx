@@ -7,12 +7,13 @@ import { useForm } from 'react-hook-form';
 import './CreatePatient.scss';
 const axios = require('axios');
 
-const CreatePatient = () => {
+const CreatePatient = (props) => {
   const { isAuthenticated, user } = useAuth0();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async data => {
     await axios.post(`${process.env.REACT_APP_API}/patient`, sanitizeFormInput(data));
+    props.handleClose()
   }
 
   // TODO: lets see about using roles more better - Set user roles in Auth0
