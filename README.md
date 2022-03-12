@@ -25,11 +25,8 @@ REACT_APP_SOCKET_IO=http://localhost:8000
 ```
 
 ```sh
-# Dev Database setup
-npm run db:create
-
 # Running locally
-npm run dev
+npm start
 
 # Running tests
 npm run test
