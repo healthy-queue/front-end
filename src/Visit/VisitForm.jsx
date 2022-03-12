@@ -21,12 +21,15 @@ const VisitForm = () => {
   const { register, handleSubmit, formState: { errors }} = useForm();
 
   const onSubmit = async data => {
-    console.log('visit info button', data, priority);
-    await axios.post(`${process.env.REACT_APP_API}/queue/enqueue`,
+    try {
+      await axios.post(`${process.env.REACT_APP_API}/queue/enqueue`,
       { 
         patient: { ...activePatient, ...sanitizeFormInput(data)}, 
         priority: priority 
       });
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   // TODO: lets see about using roles more better - Set user roles in Auth0
