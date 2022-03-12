@@ -18,8 +18,9 @@ const CreatePatient = ({ handleClose }) => {
 
   // TODO: lets see about using roles more better - Set user roles in Auth0
   // https://manage.auth0.com/dashboard/us/<Auth0 Domain>/users
-  const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
 
+  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
+  
   return (
     isAuthenticated && userRole === 'triage'
       ? <>

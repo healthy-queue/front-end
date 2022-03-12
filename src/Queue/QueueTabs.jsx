@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabsUnstyled from '@mui/base/TabsUnstyled';
@@ -65,16 +66,19 @@ justify-content: center;
 align-content: space-between;
 `;
 
-export default function QueueTabs({ selectedQueue, setSelectedQueue }) {
-  const queueData = useSelector(state => state.queue.queue)[selectedQueue]
+export default function QueueTabs() {
 
+  const [selectedQueue, setSelectedQueue] = useState('red')
+
+  let queueData = useSelector(state => state.queue.queue)[selectedQueue] 
+  console.log('Queue Data',queueData)
   const handleTabClick = (target) => {
     setSelectedQueue(target)
   }
 
   return (
     <>
-      <TabsUnstyled defaultValue={'red'}>
+      <TabsUnstyled>
         <TabsList>
           <Tab value='red' onClick={()=> handleTabClick('red')} >Red</Tab>
           <Tab value='yellow' onClick={()=> handleTabClick('yellow')} >Yellow</Tab>
