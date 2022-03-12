@@ -1,10 +1,8 @@
-import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-// import SmallButton from "./Button";
-import VisitsModal from "../Visit/VisitModal";
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllPatients } from '../Patients/reducer';
-import io from 'socket.io-client';
+import { setActivePatient } from '../Patients/reducer';
+import VisitsModal from "../Visit/VisitModal";
 // const mockData = require('../MockData/sample-queue.json') // Useful for testing layout
 
 const columns = [
@@ -30,7 +28,7 @@ const columns = [
     renderCell: (field) => <VisitsModal />
   },
 ];
-// this column --> add visit form to populate db visit table and add them to the queue
+// TODO: this column --> add visit form to populate db visit table and add them to the queue
 // only need non nullable fields: patient_id and primary_aliment
 
 export default function DataTable() {
@@ -38,9 +36,11 @@ export default function DataTable() {
   const dispatch = useDispatch()
   const patients = useSelector(state => state.patients.patients)
 
+  // Lets make this non editable or make it so edits update our database - stretch
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ minHeight: 400, width: "100%" }}>
       <DataGrid
+        onRowClick={(event) => {console.log(event.row); dispatch(setActivePatient(event.row.id))}}
         autoHeight
         rows={patients} // Swap in mockData for layout testing
         columns={columns}

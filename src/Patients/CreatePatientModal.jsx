@@ -1,9 +1,9 @@
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { useStyles } from "../Constants/theme";
-import Box from '@mui/material/Box';
 import CreatePatient from './CreatePatient';
-import Modal from '@mui/material/Modal';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const style = {
   position: 'absolute',
