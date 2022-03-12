@@ -4,6 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 // import SmallButton from "./Button";
 import VisitsModal from "../Modals/VisitsModal";
 import axios from 'axios';
+import io from 'socket.io-client';
 
 const columns = [
   { field: "id", editable: true, headerAlign: 'center', align: "center", headerName: "ID", width: 70 },
@@ -155,6 +156,9 @@ export default function DataTable() {
   // use setState to set rows, initial value []
   // use useEffect on component load to fetch patients from the backend
 
+  const socket = io.connect('http://localhost:8000')
+
+
   const [rows, setRows] = useState(rowsInitial)
 
   const fetchPatients = async () => {
@@ -162,10 +166,12 @@ export default function DataTable() {
       let response = await axios.get(`${process.env.REACT_APP_SERVER}/patients`)
       let patients = response.data;
       setRows(patients)
-    } catch (e){
+    } catch (e) {
       console.log(e.message)
     }
   }
+
+  socket.on('refetch patients', () => fetchPatients())
 
   useEffect(() => {
     fetchPatients()
