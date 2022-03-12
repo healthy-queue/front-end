@@ -1,15 +1,10 @@
-import { styled } from '@mui/system';
-import TabsUnstyled from '@mui/base/TabsUnstyled';
-import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
+import TabsListUnstyled from '@mui/base/TabsListUnstyled';
+import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
-// import RedQueue from "./Queus/RedQueue.jsx.js"
-// import YellowQueue from "./Queus/YellowQueue.jsx.js"
-import GreenQueue from "./Queus/GreenQueue.jsx"
-import { useDispatch, useSelector } from 'react-redux'
-import { setActivePatient } from '../Patients/reducer'
-
-
+import { styled } from '@mui/system';
+import { useSelector } from 'react-redux';
+import Queue from './Queue';
 
 const blue = {
   50: '#F0F7FF',
@@ -70,26 +65,23 @@ justify-content: center;
 align-content: space-between;
 `;
 
-export default function QueueTabs() {
-  
-  const queueData = useSelector(state => state.patientQueue.queue)
-  const selectedPatient = useSelector(state => state.patientQueue.activePatient)
-  const dispatch = useDispatch()
+export default function QueueTabs({ selectedQueue, setSelectedQueue }) {
+  const queueData = useSelector(state => state.queue.queue)[selectedQueue]
+
+  const handleTabClick = (target) => {
+    setSelectedQueue(target)
+  }
 
   return (
     <>
-      <TabsUnstyled defaultValue={0}>
+      <TabsUnstyled defaultValue={'red'}>
         <TabsList>
-          <Tab onClick={()=>console.log('red clicked')} >Red</Tab>
-          <Tab onClick={()=>console.log('yellow clicked')} >Yellow</Tab>
-          <Tab onClick={()=>console.log('green clicked')} >Green</Tab>
+          <Tab value='red' onClick={()=> handleTabClick('red')} >Red</Tab>
+          <Tab value='yellow' onClick={()=> handleTabClick('yellow')} >Yellow</Tab>
+          <Tab value='green' onClick={()=> handleTabClick('green')} >Green</Tab>
         </TabsList>
       </TabsUnstyled>
-      {/* 
-        <RedQueue />
-        <YellowQueue />
-      */}
-      <GreenQueue />
+      <Queue data={queueData}/>
     </>
   );
 }
