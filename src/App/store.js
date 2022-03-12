@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 import patientReducer from '../Patients/reducer'
+import queueReducer from '../Queue/reducer'
  
 const persistConfig = {
   key: 'root',
@@ -11,7 +12,8 @@ const persistConfig = {
 
 // TODO: create some reducers and then combine them here
 const rootReducer = combineReducers({
-  patients: patientReducer
+  patients: patientReducer,
+  queue: queueReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

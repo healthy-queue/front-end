@@ -1,13 +1,13 @@
-import { styled } from '@mui/system';
-import TabsUnstyled from '@mui/base/TabsUnstyled';
-import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
+import TabsListUnstyled from '@mui/base/TabsListUnstyled';
+import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
+import { styled } from '@mui/system';
 // import RedQueue from "./Queus/RedQueue.jsx.js"
 // import YellowQueue from "./Queus/YellowQueue.jsx.js"
-import GreenQueue from "./Queus/GreenQueue.jsx"
-import { useDispatch, useSelector } from 'react-redux'
-import { setActivePatient } from '../Patients/reducer'
+import GreenQueue from "./Queus/GreenQueue.jsx";
+// import { useDispatch, useSelector } from 'react-redux'
+// import { setActivePatient } from '../Patients/reducer'
 
 
 
@@ -71,10 +71,9 @@ align-content: space-between;
 `;
 
 export default function QueueTabs() {
-  
-  const queueData = useSelector(state => state.patientQueue.queue)
-  const selectedPatient = useSelector(state => state.patientQueue.activePatient)
-  const dispatch = useDispatch()
+  // const queueData = useSelector(state => state.patientQueue.queue)
+  // const selectedPatient = useSelector(state => state.patientQueue.activePatient)
+  // const dispatch = useDispatch()
 
   return (
     <>
