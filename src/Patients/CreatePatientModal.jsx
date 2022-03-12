@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { useStyles } from "../Constants/theme";
 import Box from '@mui/material/Box';
-import QueueForm from "../VisitForm/QueueForm"
+import CreatePatient from './CreatePatient';
 import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const style = {
   position: 'absolute',
@@ -18,20 +19,19 @@ const style = {
   p: 4,
 };
 
-const ReassignmentModal = () => {
+const CreatePatientModal = () => {
+  const classes = useStyles()
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
 return(
   <>
-    <Button 
+    <AddCircleIcon 
+      className={classes.icon}
       color="primary"
       onClick={ handleOpen }
-      size="small"
-      variant="contained"
-    >reassign
-    </Button>
+    />
     <Modal
       open={ open }
       onClose={ handleClose }
@@ -39,10 +39,11 @@ return(
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <QueueForm />
+        <CreatePatient />
       </Box>
     </Modal>
   </>
 )
+
 }
-export default ReassignmentModal;
+export default CreatePatientModal;

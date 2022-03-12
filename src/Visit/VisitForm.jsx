@@ -3,12 +3,12 @@ import { useForm } from 'react-hook-form'
 import Input from '@mui/material/Input'
 import Button from '@mui/material/Button'
 import { useAuth0 } from "@auth0/auth0-react"
-import QueueForm from './QueueForm'
+import QueueForm from '../Queue/QueueForm'
 
 const VisitForm = () => {
   const { isAuthenticated, user } = useAuth0();
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log('visit info button',data);
+  const onSubmit = data => console.log('visit info button', data);
 
   // TODO: lets see about using roles more better - Set user roles in Auth0
   // https://manage.auth0.com/dashboard/us/<Auth0 Domain>/users
