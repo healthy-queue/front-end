@@ -6,12 +6,13 @@ function SmallButton() {
   const classes = useStyles()
   return (
         <Button 
+          onClick={()=> console.log('button clicked') }
           variant="contained" 
           size="small"
           href="#text-buttons"
           color="info"
           classes={classes.Button}
-        > EDIT
+        > assign
         </Button>
   );
 }

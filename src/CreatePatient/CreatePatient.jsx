@@ -20,7 +20,7 @@ const CreatePatient = () => {
     // isAuthenticated && userRole === 'general'
     isAuthenticated && userRole === 'triage'
       ? <>
-          <h2> Add Patient Info </h2>
+          <h2> Add New Patient Info </h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="input-items">
               <Input type="text" placeholder="First name" {...register("First name", {required: true, maxLength: 80})} />

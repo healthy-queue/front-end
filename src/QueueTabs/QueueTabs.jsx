@@ -6,6 +6,10 @@ import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
 import RedQueue from "../Queus/RedQueue.jsx"
 import YellowQueue from "../Queus/YellowQueue.jsx"
 import GreenQueue from "../Queus/GreenQueue.jsx"
+import { useDispatch, useSelector } from 'react-redux'
+import { setActivePatient } from '../ReduxReducers/reducer'
+
+
 
 const blue = {
   50: '#F0F7FF',
@@ -19,55 +23,59 @@ const blue = {
   800: '#004C99',
   900: '#003A75',
 };
-
 const Tab = styled(TabUnstyled)`
-  font-family: IBM Plex Sans, sans-serif;
-  color: white;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: bold;
-  background-color: transparent;
-  width: 100%;
-  padding: 12px 16px;
-  margin: 6px 6px;
-  border: none;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
+font-family: IBM Plex Sans, sans-serif;
+color: white;
+cursor: pointer;
+font-size: 0.875rem;
+font-weight: bold;
+background-color: transparent;
+width: 100%;
+padding: 12px 16px;
+margin: 6px 6px;
+border: none;
+border-radius: 5px;
+display: flex;
+justify-content: center;
 
-  &:hover {
-    background-color: ${blue[400]};
-  }
+&:hover {
+  background-color: ${blue[400]};
+}
 
-  &:focus {
-    color: #fff;
-    border-radius: 3px;
-    outline: 2px solid ${blue[200]};
-    outline-offset: 2px;
-  }
+&:focus {
+  color: #fff;
+  border-radius: 3px;
+  outline: 2px solid ${blue[200]};
+  outline-offset: 2px;
+}
 
-  &.${tabUnstyledClasses.selected} {
-    background-color: ${blue[50]};
-    color: ${blue[600]};
-  }
+&.${tabUnstyledClasses.selected} {
+  background-color: ${blue[50]};
+  color: ${blue[600]};
+}
 
-  &.${buttonUnstyledClasses.disabled} {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+&.${buttonUnstyledClasses.disabled} {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 `;
 const TabsList = styled(TabsListUnstyled)`
-  min-width: 320px;
-  background-color: ${blue[500]};
-  border-radius: 8px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: space-between;
+min-width: 320px;
+background-color: ${blue[500]};
+border-radius: 8px;
+margin-bottom: 16px;
+display: flex;
+align-items: center;
+justify-content: center;
+align-content: space-between;
 `;
 
 export default function QueueTabs() {
+  
+  const queueData = useSelector(state => state.patientQueue.queue)
+  const selectedPatient = useSelector(state => state.patientQueue.activePatient)
+  const dispatch = useDispatch()
+
   return (
     <>
       <TabsUnstyled defaultValue={0}>
@@ -81,7 +89,7 @@ export default function QueueTabs() {
         <RedQueue />
         <YellowQueue />
       */}
-    <GreenQueue />
+      <GreenQueue />
     </>
   );
 }

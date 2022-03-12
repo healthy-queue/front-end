@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import ReassignmentModal from '../Modals/ReassignmentModal.jsx'
 
 /* 
 {"green": [{id: 'uniqueInt','name': '' }...], 
@@ -8,9 +9,21 @@ import { DataGrid } from '@mui/x-data-grid';
 }
 */
 
+// use Dispatch to fetch current Green Queue
+// onClick={() => dispatch(setActivePatient(item.id))}
+
 const columns = [
   { field: 'id', headerName: 'id', width: 70 },
   { field: 'firstName', headerName: 'first name', width: 130 },
+  { field: "button",
+    headerAlign: 'center',
+    align: "center",
+    headerName: "change queue",
+    type: "number",
+    width: 130,
+    disableClickEventBubbling: true,
+    renderCell: (field) => < ReassignmentModal />
+  }
 ];
 
 const rows = [
