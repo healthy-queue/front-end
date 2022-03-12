@@ -1,11 +1,9 @@
 import React from 'react';
-import PatientQueue from '../PatientQueue/PatientQueue';
 
 const Home = () => {
   return (
     <main>
-      <h2>Welcome to HealthyQ</h2>
-      <PatientQueue />
+      <h2>Welcome to the homepage!</h2>
     </main>
   );
 }

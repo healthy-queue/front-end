@@ -1,18 +1,19 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { useStyles } from "../Constants/theme";
 
-export default function smallButton() {
+function SmallButton() {
+  const classes = useStyles()
   return (
-    <Box sx={{ '& button': { m: 1 } }}>
-
-    
-      <div>
-        <Button variant="contained" size="small" color="info">
-         EDIT
+        <Button 
+          onClick={()=> console.log('button clicked') }
+          variant="contained" 
+          size="small"
+          href="#text-buttons"
+          color="info"
+          classes={classes.Button}
+        > assign
         </Button>
-        
-      </div>
-    </Box>
   );
 }
+export default SmallButton

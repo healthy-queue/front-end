@@ -1,8 +1,9 @@
-import Home from '../Home/Home';
 import About from '../About/About';
+import Container from "@material-ui/core/Container"
+import Home from '../Home/Home';
 import Map from '../Map/Map';
+import PatientTable from '../PatientTable/PatientTable';
 import PatientQueue from '../PatientQueue/PatientQueue';
-import CreatePatient from '../CreatePatient/CreatePatient';
 
 import { Routes, Route } from "react-router-dom";
 
@@ -13,7 +14,17 @@ const MyRouter = () => {
       <Route path="about" element={ <About /> } />
       <Route path="map" element={ <Map />} />
       <Route path="patient-queue" element={ <PatientQueue /> } />
-      <Route path="create-patient" element={ <CreatePatient /> } />
+      <Route path="create-patient" 
+        element={ 
+          <Container
+            align="center" 
+            component="main" 
+            maxWidth="lg"
+          >
+            <PatientTable />
+          </Container>
+        } 
+      />
     </Routes>
   )
 }

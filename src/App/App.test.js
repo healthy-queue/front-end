@@ -23,7 +23,7 @@ describe('App', () => {
         <App />
       </Provider>
     , { wrapper: MemoryRouter });
-    const el = screen.getByText(/Welcome to HealthyQ/i);
+    const el = screen.getByText(/Welcome to the homepage!/i);
     expect(el).toBeInTheDocument();
   });
 })
