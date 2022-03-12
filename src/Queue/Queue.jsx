@@ -1,14 +1,14 @@
 import React from 'react';
-import Container from "@material-ui/core/Container"
-import QueueTabs from "../QueueTabs/QueueTabs"
+import Container from "@material-ui/core/Container";
+import QueueTabs from "./QueueTabs";
 // import { useDispatch, useSelector } from 'react-redux'
 // import { setActivePatient } from '../ReduxReducers/reducer'
 
-const PatientQueue = () => {
+const Queue = () => {
   // const queueData = useSelector(state => state.patientQueue.queue)
   // const selectedPatient = useSelector(state => state.patientQueue.activePatient)
   // const dispatch = useDispatch()
-  console.log('Patient Queue')
+  console.log('Queue')
   return (
     <>
       <Container
@@ -27,4 +27,4 @@ const PatientQueue = () => {
   );
 }
 
-export default PatientQueue;
+export default Queue;

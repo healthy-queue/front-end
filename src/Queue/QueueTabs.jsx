@@ -3,11 +3,11 @@ import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
-import RedQueue from "../Queus/RedQueue.jsx"
-import YellowQueue from "../Queus/YellowQueue.jsx"
-import GreenQueue from "../Queus/GreenQueue.jsx"
+// import RedQueue from "./Queus/RedQueue.jsx.js"
+// import YellowQueue from "./Queus/YellowQueue.jsx.js"
+import GreenQueue from "./Queus/GreenQueue.jsx"
 import { useDispatch, useSelector } from 'react-redux'
-import { setActivePatient } from '../ReduxReducers/reducer'
+import { setActivePatient } from '../Patients/reducer'
 
 
 

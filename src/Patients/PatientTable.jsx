@@ -1,10 +1,9 @@
 import React from 'react';
 import DataTable from '../Home/Table';
 import Grid from "@material-ui/core/Grid"
-import AddPatientModal from '../Modals/AddPatientModal'
+import CreatePatientModal from './CreatePatientModal'
 
 const PatientTable = () => {
-
   return (
     <>
     <h2> All Registered Patients </h2>
@@ -15,7 +14,7 @@ const PatientTable = () => {
         direction="column"
         alignItems="flex-end"
         justify="flex-end"
-      ><AddPatientModal />
+      ><CreatePatientModal />
       </Grid>
     </Grid>
     <DataTable />

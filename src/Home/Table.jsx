@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 // import SmallButton from "./Button";
-import VisitsModal from "../Modals/VisitsModal"
+import VisitsModal from "../Visit/VisitModal"
 
 const columns = [
   { field: "id", editable: true, headerAlign: 'center', align: "center", headerName: "ID", width: 70 },

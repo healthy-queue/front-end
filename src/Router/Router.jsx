@@ -1,9 +1,8 @@
 import About from '../About/About';
 import Container from "@material-ui/core/Container"
 import Home from '../Home/Home';
-import Map from '../Map/Map';
-import PatientTable from '../PatientTable/PatientTable';
-import PatientQueue from '../PatientQueue/PatientQueue';
+import PatientTable from '../Patients/PatientTable';
+import Queue from '../Queue/Queue';
 
 import { Routes, Route } from "react-router-dom";
 
@@ -12,8 +11,7 @@ const MyRouter = () => {
     <Routes>
       <Route path="/" element={ <Home /> } />
       <Route path="about" element={ <About /> } />
-      <Route path="map" element={ <Map />} />
-      <Route path="patient-queue" element={ <PatientQueue /> } />
+      <Route path="patient-queue" element={ <Queue /> } />
       <Route path="create-patient" 
         element={ 
           <Container

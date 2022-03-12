@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import ReassignmentModal from '../Modals/ReassignmentModal.jsx'
+import ReassignmentModal from '../ReassignmentModal.jsx'
 
 /* 
 {"green": [{id: 'uniqueInt','name': '' }...], 

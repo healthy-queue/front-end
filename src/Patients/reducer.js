@@ -3,7 +3,7 @@ const Data = require('../data/sample-queue.json')
 
 const initialState = {
   activePatient: {},
-  queue: Data
+  patients: Data
 }
 
 export const patientQueueSlice = createSlice({
@@ -12,7 +12,7 @@ export const patientQueueSlice = createSlice({
   reducers: {
     setActivePatient: (state, action) => {
       console.log('Payload', action.payload)
-      state.activePatient = state.queue.find(patient => patient.id === action.payload)
+      state.activePatient = state.patients.find(patient => patient.id === action.payload)
     },
   }
 })
