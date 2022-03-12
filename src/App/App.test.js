@@ -3,13 +3,12 @@ import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-const Data = require('../MockData/sample-queue.json')
 
 describe('App', () => {
   const initialState = { 
-    patientQueue: { 
+    queue: { 
       activePatient: {}, 
-      queue: Data 
+      queue: []
     }
   };
 
