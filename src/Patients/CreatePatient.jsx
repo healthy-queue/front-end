@@ -11,8 +11,9 @@ const CreatePatient = () => {
   const { isAuthenticated, user } = useAuth0();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = async data => {
+  const onSubmit = async (data, props) => {
     await axios.post(`${process.env.REACT_APP_API}/patient`, sanitizeFormInput(data));
+    props.handleSubmit();
   }
 
   // TODO: lets see about using roles more better - Set user roles in Auth0
