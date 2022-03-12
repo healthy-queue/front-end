@@ -34,15 +34,15 @@ const rows = [
 
 export default function GreenQueue() {
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: 400, width: '100%', marginBottom: 15 }}>
       <DataGrid
-        autoHeight
         autoWidth
         rows={rows}
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}
         sx={{
+          marginBottom: 5,
           borderRadius: 3,
           boxShadow: 2,
           border: 2,

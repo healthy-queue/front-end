@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log(user)
+    // console.log(user)
   }, [user])
 
   // TODO: lets see about using roles more better - Set user roles in Auth0

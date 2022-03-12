@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { styled } from '@mui/system';
+import Container from "@material-ui/core/Container"
 import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
@@ -6,10 +8,9 @@ import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
 import RedQueue from "../Queus/RedQueue.jsx"
 import YellowQueue from "../Queus/YellowQueue.jsx"
 import GreenQueue from "../Queus/GreenQueue.jsx"
-import { useDispatch, useSelector } from 'react-redux'
-import { setActivePatient } from '../ReduxReducers/reducer'
 
-
+// import { useDispatch, useSelector } from 'react-redux'
+// import { setActivePatient } from '../ReduxReducers/reducer'
 
 const blue = {
   50: '#F0F7FF',
@@ -71,25 +72,36 @@ align-content: space-between;
 `;
 
 export default function QueueTabs() {
+
+  // const queueData = useSelector(state => state.patientQueue.queue)
+  // const selectedPatient = useSelector(state => state.patientQueue.activePatient)
+  // const dispatch = useDispatch()
   
-  const queueData = useSelector(state => state.patientQueue.queue)
-  const selectedPatient = useSelector(state => state.patientQueue.activePatient)
-  const dispatch = useDispatch()
+  const [ show, setShow ] = useState(<><RedQueue /><YellowQueue /><GreenQueue /></>)
+  const handleDisplay = ( target ) => {
+    let show
+    if(target === 'all') show = (<><RedQueue /><YellowQueue /><GreenQueue /></>)
+    else if (target === 'red') show = (<RedQueue />)
+    else if (target === 'yellow') show = (<YellowQueue />)
+    else if (target === 'green') show = (<GreenQueue />)
+    setShow(show)
+  }
 
   return (
-    <>
-      <TabsUnstyled defaultValue={0}>
+    <Container 
+      align="center" 
+      component="main" 
+      maxWidth="lg"
+    >
+      <TabsUnstyled defaultValue={2}>
         <TabsList>
-          <Tab onClick={()=>console.log('red clicked')} >Red</Tab>
-          <Tab onClick={()=>console.log('yellow clicked')} >Yellow</Tab>
-          <Tab onClick={()=>console.log('green clicked')} >Green</Tab>
+          <Tab onClick={ ()=>handleDisplay('all')} >All</Tab>
+          <Tab onClick={()=> handleDisplay('red')} >Red</Tab>
+          <Tab onClick={()=> handleDisplay('yellow')} >Yellow</Tab>
+          <Tab onClick={()=> handleDisplay('green')} >Green</Tab>
         </TabsList>
       </TabsUnstyled>
-      {/* 
-        <RedQueue />
-        <YellowQueue />
-      */}
-      <GreenQueue />
-    </>
+      <> { show } </>
+    </Container>
   );
 }
