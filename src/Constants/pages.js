@@ -9,12 +9,12 @@ export const pages = {
       path: '/about'
     },
     {
-      displayName: 'Create Patient',
-      path: '/create-patient'
+      displayName: 'Patients',
+      path: '/patients'
     },
     {
       displayName: 'Queue',
-      path: '/patient-queue'
+      path: '/queue'
     }
   ],
   provider: [
@@ -28,7 +28,7 @@ export const pages = {
     },
     {
       displayName: 'Queue',
-      path: '/patient-queue'
+      path: '/queue'
     }
   ],
   general: [
