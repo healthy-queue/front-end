@@ -1,9 +1,10 @@
-// import * as React from "react";
-import { useEffect, useState } from "react";
+import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 // import SmallButton from "./Button";
-import VisitsModal from "../Visit/VisitModal"
-import axios from 'axios';
+import VisitsModal from "../Visit/VisitModal";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAllPatients } from '../Patients/reducer';
+import io from 'socket.io-client';
 
 const columns = [
   { field: "id", editable: true, headerAlign: 'center', align: "center", headerName: "ID", width: 70 },
@@ -151,31 +152,17 @@ const rowsInitial = [
 ];
 
 export default function DataTable() {
-
-  // use setState to set rows, initial value []
-  // use useEffect on component load to fetch patients from the backend
-
-  const [rows, setRows] = useState(rowsInitial)
-
-  const fetchPatients = async () => {
-    try {
-      let response = await axios.get(`${process.env.REACT_APP_SERVER}/patients`)
-      let patients = response.data;
-      setRows(patients)
-    } catch (e){
-      console.log(e.message)
-    }
-  }
-
-  useEffect(() => {
-    fetchPatients()
-  }, [])
+  // Grab patients from redux
+  const dispatch = useDispatch()
+  const patients = useSelector(state => state.patients.patients)
+  const socket = io.connect(process.env.REACT_APP_SOCKET_IO || 'http://localhost:8000')
+  socket.on('refetch patients', () => dispatch(fetchAllPatients()))
 
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
         autoHeight
-        rows={rows}
+        rows={patients}
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}
