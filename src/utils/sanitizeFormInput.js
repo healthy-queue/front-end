@@ -1,5 +1,5 @@
 import { pickBy } from 'lodash';
 
-export const sanityFormInput = input => {
+export const sanitizeFormInput = input => {
   return pickBy(input, value => value !== "");
 }
