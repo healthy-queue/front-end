@@ -77,3 +77,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 [Material-UI Theme Creator](https://bareynol.github.io/mui-theme-creator/)
 
 [Theming](https://mui.com/customization/theming/)
+
+[Find by key deep in a nested array](https://stackoverflow.com/a/56204398/7967484)
+
+[How to prevent multiple socket connections and events in React](https://dev.to/bravemaster619/how-to-prevent-multiple-socket-connections-and-events-in-react-531d)
