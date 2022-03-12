@@ -24,7 +24,7 @@ const VisitForm = () => {
     console.log('visit info button', data, priority);
     await axios.post(`${process.env.REACT_APP_API}/queue/enqueue`,
       { 
-        patient: { id: activePatient.id, ...sanitizeFormInput(data)}, 
+        patient: { ...activePatient, ...sanitizeFormInput(data)}, 
         priority: priority 
       });
   }

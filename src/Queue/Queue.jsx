@@ -1,34 +1,52 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import QueueTabs from './QueueTabs';
-import { useAuth0 } from '@auth0/auth0-react';
-import { useDispatch, useSelector } from 'react-redux'
-// import { setActivePatient } from '../Patient/reducer'
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import ReassignmentModal from './ReassignmentModal.jsx'
 
-const Queue = () => {
-  const { isAuthenticated, user } = useAuth0();
-  const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
-  const queueData = useSelector(state => state.queue.queue)
-  const selectedPatient = useSelector(state => state.patients.activePatient)
-  const dispatch = useDispatch()
-  console.log('Queue')
+const columns = [
+  { field: 'id', headerName: 'id', width: 70 },
+  { field: 'first_name', headerName: 'First Name', width: 130 },
+  { field: 'last_name', headerName: 'Last Name', width: 130 },
+  { field: 'date_of_birth', headerName: 'D.O.B', width: 130 },
+  { field: 'primary_ailment', headerName: 'Notes', width: 130 },
+  { field: "button",
+    headerAlign: 'center',
+    align: "center",
+    headerName: "",
+    type: "number",
+    width: 130,
+    disableClickEventBubbling: true,
+    renderCell: (field) => < ReassignmentModal />
+  }
+];
+
+// // Mock Data
+// const rows = [
+//   { id: 1, first_name:'name'}, 
+//   { id: 2, first_name:'name'}, 
+//   { id: 3, first_name:'name'}, 
+// ];
+
+const Queue = ({ data }) => {
   return (
-    isAuthenticated && userRole === 'triage' || userRole === 'provider'
-      ? <>
-          <Container
-            align="center" 
-            component="main" 
-            maxWidth="lg"
-            >
-            <h2> Live Queue Information </h2>
-            <QueueTabs />
-            {/* { queueData.map((item, idx) => {
-              return <button key={idx}>{item.name}</button>
-            }) }
-            <span>{selectedPatient.name}</span> */}
-          </Container >
-        </>
-      : null
+    <div style={{ minHeight: 400, width: '100%' }}>
+      <DataGrid
+        autoHeight
+        autoWidth
+        rows={data}
+        columns={columns}
+        pageSize={10}
+        rowsPerPageOptions={[10]}
+        sx={{
+          borderRadius: 3,
+          boxShadow: 2,
+          border: 2,
+          borderColor: 'primary.light',
+          '& .MuiDataGrid-cell:hover': {
+            color: 'primary.main',
+          },
+        }}
+      />
+    </div>
   );
 }
 
