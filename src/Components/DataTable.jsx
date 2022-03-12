@@ -155,8 +155,6 @@ export default function DataTable() {
   // Grab patients from redux
   const dispatch = useDispatch()
   const patients = useSelector(state => state.patients.patients)
-  const socket = io.connect(process.env.REACT_APP_SOCKET_IO || 'http://localhost:8000')
-  socket.on('refetch patients', () => dispatch(fetchAllPatients()))
 
   return (
     <div style={{ height: 400, width: "100%" }}>
