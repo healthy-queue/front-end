@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 const axios = require('axios');
 
 
-const VisitForm = (props) => {
+const VisitForm = ({handleClose}) => {
   const [priority, setPriority] = useState('');
   const activePatient = useSelector(state => state.patients.activePatient)
   
@@ -27,7 +27,7 @@ const VisitForm = (props) => {
         patient: { ...activePatient, ...sanitizeFormInput(data)}, 
         priority: priority 
       });
-      props.handleClose()
+      handleClose()
     } catch (e) {
       console.error(e)
     }
