@@ -1,6 +1,5 @@
 import About from '../About/About';
 import Container from "@material-ui/core/Container"
-import CreatePatient from '../CreatePatient/CreatePatient';
 import Home from '../Home/Home';
 import Map from '../Map/Map';
 import PatientTable from '../PatientTable/PatientTable';
@@ -22,7 +21,6 @@ const MyRouter = () => {
             component="main" 
             maxWidth="lg"
           >
-            {/* <CreatePatient />  */}
             <PatientTable />
           </Container>
         } 

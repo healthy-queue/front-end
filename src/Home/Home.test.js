@@ -23,7 +23,7 @@ describe('Home', () => {
         <Home />
       </Provider>
     , { wrapper: MemoryRouter });
-    const el = screen.getByText(/Welcome to the homepage!/i);
+    const el = screen.getByText(/Welcome to HealthyQ/i);
     expect(el).toBeInTheDocument();
   });
 })
