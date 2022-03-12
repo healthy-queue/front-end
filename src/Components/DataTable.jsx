@@ -16,7 +16,7 @@ const columns = [
   { field: "phone_number", editable: false, headerAlign: 'center', align: "center", headerName: "Phone", type: "string", width: 15 },
   { field: "createdAt", editable: false, headerAlign: 'center', align: "center", headerName: "Created", type: "number", width: 90 },
   { field: "updatedAt", editable: false, headerAlign: 'center', align: "center", headerName: "Updated", type: "number", width: 90 },
-  { field: "isEnqueued", editable: false, headerAlign: 'center', align: "center", headerName: "isEnqueued", type: "string", width: 100 },
+  { field: "isEnqueued", editable: false, headerAlign: 'center', align: "center", headerName: "Enqueued", type: "string", width: 100 },
   {
     field: "button",
     headerAlign: 'center',

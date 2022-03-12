@@ -20,7 +20,7 @@ const PatientTable = () => {
             container
             direction="column"
             alignItems="flex-end"
-            justify="flex-end"
+            justifyContent="flex-end"
           ><CreatePatientModal />
           </Grid>
         </Grid>
