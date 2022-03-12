@@ -5,6 +5,7 @@ import VisitsModal from "../Visit/VisitModal";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllPatients } from '../Patients/reducer';
 import io from 'socket.io-client';
+// const mockData = require('../MockData/sample-queue.json') // Useful for testing layout
 
 const columns = [
   { field: "id", editable: true, headerAlign: 'center', align: "center", headerName: "ID", width: 70 },
@@ -31,125 +32,6 @@ const columns = [
 ];
 // this column --> add visit form to populate db visit table and add them to the queue
 // only need non nullable fields: patient_id and primary_aliment
-const rowsInitial = [
-  {
-    id: 1,
-    last_name: "Snow",
-    first_name: "Jon",
-    date_of_birth: "1-1-01",
-    email_address: "js@aol.com",
-    phone_number: "27346234",
-    insurance_carrier: "BCBS",
-    insurance_group: "1234A",
-    createdAt: "20:15:45",
-    updatedAt: "20:15:45",
-    isEnqueued: false
-  },
-  {
-    id: 2,
-    last_name: "Lannister",
-    first_name: "Cersei",
-    date_of_birth: "7-3-99",
-    email_address: "cl@aol.com",
-    phone_number: "27346234",
-    insurance_carrier: "Aetna",
-    insurance_group: "1234A",
-    createdAt: "20:15:45",
-    updatedAt: "20:15:45",
-    isEnqueued: false
-  },
-  {
-    id: 3,
-    last_name: "Lannister",
-    first_name: "Jaime",
-    date_of_birth: "1-13-88",
-    email_address: "jl@aol.com",
-    phone_number: "27346234",
-    insurance_carrier: "Kaiser",
-    insurance_group: "1234A",
-    createdAt: "20:15:45",
-    updatedAt: "20:15:45",
-    isEnqueued: false
-  },
-  {
-    id: 4,
-    last_name: "Stark",
-    first_name: "Arya",
-    date_of_birth: "1-7-21",
-    email_address: "as@aol.com",
-    phone_number: "27346234",
-    insurance_group: "1234A",
-    insurance_carrier: "Aetna",
-    createdAt: "20:15:45",
-    updatedAt: "20:15:45",
-    isEnqueued: false
-  },
-  {
-    id: 5,
-    last_name: "Targaryen",
-    first_name: "Daenerys",
-    date_of_birth: "3-1-67",
-    email_address: "dt@aol.com",
-    phone_number: "27346234",
-    insurance_carrier: "Aetna",
-    insurance_group: "1234A",
-    createdAt: "20:15:45",
-    updatedAt: "20:15:45",
-    isEnqueued: false
-  },
-  {
-    id: 6,
-    last_name: "Melisandre",
-    first_name: null,
-    date_of_birth: "1-1-21",
-    email_address: "mm@aol.com",
-    phone_number: "27346234",
-    insurance_carrier: "Aetna",
-    insurance_group: "1234A",
-    createdAt: "20:15:45",
-    updatedAt: "20:15:45",
-    isEnqueued: false
-  },
-  {
-    id: 7,
-    last_name: "Clifford",
-    first_name: "Ferrara",
-    date_of_birth: "7-1-13",
-    email_address: "js@aol.com",
-    phone_number: "27346234",
-    insurance_carrier: "Aetna",
-    insurance_group: "1234A",
-    createdAt: "20:15:45",
-    updatedAt: "20:15:45",
-    isEnqueued: false
-  },
-  {
-    id: 8,
-    last_name: "Frances",
-    first_name: "Rossini",
-    date_of_birth: "1-1-01",
-    email_address: "js@aol.com",
-    phone_number: "27346234",
-    insurance_carrier: "Aetna",
-    insurance_group: "1234A",
-    createdAt: "20:15:45",
-    updatedAt: "20:15:45",
-    isEnqueued: false
-  },
-  {
-    id: 9,
-    last_name: "Roxie",
-    first_name: "Harvey",
-    date_of_birth: "1-7-21",
-    email_address: "js@aol.com",
-    phone_number: "27346234",
-    insurance_carrier: "Aetna",
-    insurance_group: "1234A",
-    createdAt: "20:15:45",
-    updatedAt: "20:15:45",
-    isEnqueued: false
-  },
-];
 
 export default function DataTable() {
   // Grab patients from redux
@@ -160,7 +42,7 @@ export default function DataTable() {
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
         autoHeight
-        rows={patients}
+        rows={patients} // Swap in mockData for layout testing
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}
