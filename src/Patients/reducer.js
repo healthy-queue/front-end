@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-const Data = require('../data/sample-queue.json')
+const Data = require('../MockData/sample-queue.json')
 
 const initialState = {
   activePatient: {},

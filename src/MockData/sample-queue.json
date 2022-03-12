@@ -1,41 +1,41 @@
 [
   {
-    "id": "5154dd2e-9e59-4bfa-a6a9-6fe8fa69e7c9",
-    "name": "Lena West",
+    "id": 1,
+    "first_name": "Lena",
+    "last_name": "West",
     "date_of_birth": "01-28-91",
-    "priority": 1,
     "time_entered": 1646523341000,
     "injury": "Compound fracture"
   },
   {
-    "id": "0021352d-d5e8-492f-a599-e5ceadc99573",
-    "name": "Alexious Johannes",
+    "id": 2,
+    "first_name": "Alexious",
+    "last_name": "Johannes",
     "date_of_birth": "06-01-00",
-    "priority": 1,
     "time_entered": 1646524888052,
     "injury": "Chest Pain"
   },
   {
-    "id": "ca448497-8a95-47c9-b508-73e62ba3eb45",
-    "name": "Terry Schmidt",
+    "id": 3,
+    "first_name": "Terry",
+    "last_name": "Schmidt",
     "date_of_birth": "05/25/94",
-    "priority": 2,
     "time_entered": 1646519700000,
     "injury": "Sprained Ankle"
   },
   {
-    "id": "f69d2fc6-0452-494e-969b-00650237e693",
-    "name": "Abraham Greer",
+    "id": 4,
+    "first_name": "Abraham",
+    "last_name": "Greer",
     "date_of_birth": "04-29-00",
-    "priority": 3,
     "time_entered": 1646519520000,
     "injury": "Ear ache"
   },
   {
-    "id": "92817db4-a0aa-4ad3-a992-8f36b2c5909f",
-    "name": "Zachary Gregory",
+    "id": 5,
+    "first_name": "Zachary",
+    "last_name": "Gregory",
     "date_of_birth": "04-29-93",
-    "priority": 3,
     "time_entered": 1646524520000,
     "injury": "Sore throat"
   }

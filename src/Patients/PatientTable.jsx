@@ -1,5 +1,5 @@
 import React from 'react';
-import DataTable from '../Home/Table';
+import DataTable from '../Components/DataTable';
 import Grid from "@material-ui/core/Grid"
 import CreatePatientModal from './CreatePatientModal'
 
