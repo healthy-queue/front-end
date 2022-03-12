@@ -8,17 +8,17 @@ import io from 'socket.io-client';
 // const mockData = require('../MockData/sample-queue.json') // Useful for testing layout
 
 const columns = [
-  { field: "id", editable: true, headerAlign: 'center', align: "center", headerName: "ID", width: 70 },
-  { field: "first_name", editable: true, headerAlign: 'center', align: "center", headerName: "First name", width: 130 },
-  { field: "last_name", editable: true, headerAlign: 'center', align: "center", headerName: "Last name", width: 130 },
-  { field: "date_of_birth", editable: true, headerAlign: 'center', align: "center", headerName: "D.O.B.", type: "string", width: 90 },
-  { field: "email_address", editable: true, headerAlign: 'center', align: "center", headerName: "Email", type: "string", width: 150 },
-  { field: "insurance_carrier", editable: true, headerAlign: 'center', align: "center", headerName: "Carrier", type: "string", width: 90 },
-  { field: "insurance_group", editable: true, headerAlign: 'center', align: "center", headerName: "Group", type: "string", width: 90 },
-  { field: "phone_number", editable: true, headerAlign: 'center', align: "center", headerName: "Phone", type: "string", width: 15 },
-  { field: "createdAt", editable: true, headerAlign: 'center', align: "center", headerName: "Created", type: "number", width: 90 },
-  { field: "updatedAt", editable: true, headerAlign: 'center', align: "center", headerName: "Updated", type: "number", width: 90 },
-  { field: "isEnqueued", editable: true, headerAlign: 'center', align: "center", headerName: "isEnqueued", type: "string", width: 100 },
+  { field: "id", editable: false, headerAlign: 'center', align: "center", headerName: "ID", width: 70 },
+  { field: "first_name", editable: false, headerAlign: 'center', align: "center", headerName: "First name", width: 130 },
+  { field: "last_name", editable: false, headerAlign: 'center', align: "center", headerName: "Last name", width: 130 },
+  { field: "date_of_birth", editable: false, headerAlign: 'center', align: "center", headerName: "D.O.B.", type: "string", width: 90 },
+  { field: "email_address", editable: false, headerAlign: 'center', align: "center", headerName: "Email", type: "string", width: 150 },
+  { field: "insurance_carrier", editable: false, headerAlign: 'center', align: "center", headerName: "Carrier", type: "string", width: 90 },
+  { field: "insurance_group", editable: false, headerAlign: 'center', align: "center", headerName: "Group", type: "string", width: 90 },
+  { field: "phone_number", editable: false, headerAlign: 'center', align: "center", headerName: "Phone", type: "string", width: 15 },
+  { field: "createdAt", editable: false, headerAlign: 'center', align: "center", headerName: "Created", type: "number", width: 90 },
+  { field: "updatedAt", editable: false, headerAlign: 'center', align: "center", headerName: "Updated", type: "number", width: 90 },
+  { field: "isEnqueued", editable: false, headerAlign: 'center', align: "center", headerName: "isEnqueued", type: "string", width: 100 },
   {
     field: "button",
     headerAlign: 'center',
