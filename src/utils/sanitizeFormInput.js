@@ -1,5 +1,5 @@
 import { pickBy } from 'lodash';
 
-export async function sanityFormInput(input) {
+export const sanityFormInput = input => {
   return pickBy(input, value => value !== "");
 }

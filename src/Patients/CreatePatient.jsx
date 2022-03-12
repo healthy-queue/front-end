@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
-import { pickBy } from 'lodash';
+import { sanityFormInput } from '../Utils/sanitizeFormInput'
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import './CreatePatient.scss';
@@ -12,8 +12,7 @@ const CreatePatient = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async data => {
-    const sanitizedValues = pickBy(data, value => value !== "");
-    await axios.post(`${process.env.REACT_APP_API}/patient`, sanitizedValues);
+    await axios.post(`${process.env.REACT_APP_API}/patient`, sanityFormInput(data));
   }
 
   // TODO: lets see about using roles more better - Set user roles in Auth0
