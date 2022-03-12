@@ -39,7 +39,7 @@ return(
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <VisitForm />
+        <VisitForm handleClose={handleClose}/>
       </Box>
     </Modal>
   </>

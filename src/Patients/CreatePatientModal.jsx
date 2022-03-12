@@ -39,7 +39,7 @@ return(
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <CreatePatient />
+        <CreatePatient handleClose={handleClose} />
       </Box>
     </Modal>
   </>
