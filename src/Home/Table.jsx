@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 // import SmallButton from "./Button";
-import VisitsModal from "../Visit/VisitModal"
+import VisitsModal from "../Modals/VisitsModal";
 import axios from 'axios';
 import io from 'socket.io-client';
 
