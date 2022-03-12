@@ -38,9 +38,9 @@ return(
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style}>
-        <VisitForm />
-      </Box>
+    <Box sx={style}>
+      <VisitForm />
+    </Box>
     </Modal>
   </>
 )
