@@ -19,7 +19,8 @@ function App() {
     } catch (e) {
       console.warn('Error connecting to Socket.io server: ', e)
     }
-  }, [dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="App">

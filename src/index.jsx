@@ -1,4 +1,5 @@
 import { Auth0Provider } from "@auth0/auth0-react";
+import { ThemeProvider } from "@mui/material";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -7,10 +8,9 @@ import { persistStore } from "redux-persist";
 import { PersistGate } from 'redux-persist/integration/react';
 import App from './App/App';
 import store from './App/store';
+import { theme } from './Constants/theme';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import { ThemeProvider } from "@mui/material";
-import { theme } from './Constants/theme'
 
 let persistor = persistStore(store)
 
