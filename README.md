@@ -39,6 +39,10 @@ npm run test
 * Github: [@ag961](https://github.com/ag961)
 * Github: [@MuckT](https://github.com/MuckT)
 
+### Stack Info
+
+[https://jestjs.io/](https://jestjs.io/)
+
 ### Sources
 
 [Material UI Menu using routes](https://stackoverflow.com/a/69330609)
