@@ -9,7 +9,8 @@ const axios = require('axios');
 
 const CreatePatient = ({ handleClose }) => {
   const { isAuthenticated, user } = useAuth0();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  // eslint-disable-next-line no-unused-vars
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = async data => {
     await axios.post(`${process.env.REACT_APP_API}/patient`, sanitizeFormInput(data));

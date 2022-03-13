@@ -10,7 +10,7 @@ const axios = require('axios');
 const QueueContainer = () => {
   const dispatch = useDispatch()
   const { isAuthenticated, user } = useAuth0();
-  const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
+  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
 
   // Get Queue on initial load
   useEffect(() => {
@@ -22,13 +22,14 @@ const QueueContainer = () => {
     fetchData().catch(console.error)
   }, [])
   
+  
   return (
-    isAuthenticated && userRole === 'triage' || userRole === 'provider'
+    isAuthenticated && (userRole === 'triage' || userRole === 'provider')
       ? <>
           <Container align="center" component="main" maxWidth="lg">
             <h2> Live Queue Information </h2>
             <QueueTabs />
-          </Container >
+          </Container>
         </>
       : null
   );

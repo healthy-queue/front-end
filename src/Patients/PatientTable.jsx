@@ -11,7 +11,7 @@ const axios = require('axios');
 const PatientTable = () => {
   const dispatch = useDispatch()
   const { isAuthenticated, user } = useAuth0();
-  const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
+  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
 
   // Get Patients on initial load
   useEffect(() => {
@@ -24,7 +24,7 @@ const PatientTable = () => {
   }, [])
 
   return (
-    isAuthenticated && userRole === 'triage' || userRole === 'provider'
+    isAuthenticated && (userRole === 'triage' || userRole === 'provider')
       ? <>
         <h2> All Registered Patients </h2>
           <DataTable />
