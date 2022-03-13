@@ -7,10 +7,11 @@ import { useForm } from 'react-hook-form'
 import QueueForm from '../Queue/QueueForm'
 import { sanitizeFormInput } from '../utils/sanitizeFormInput'
 import { useSelector } from 'react-redux';
+import TextField from '@mui/material/TextField'
 const axios = require('axios');
 
 
-const VisitForm = ({handleClose}) => {
+const AddVisitForm = ({handleClose}) => {
   const [priority, setPriority] = useState('');
   const activePatient = useSelector(state => state.patients.activePatient)
   
@@ -18,13 +19,13 @@ const VisitForm = ({handleClose}) => {
   const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
   
   // TODO: do something with the errors - Stretch
-  const { register, handleSubmit, formState: { errors }} = useForm();
+  const { register, handleSubmit,  formState: { errors }} = useForm();
 
   const onSubmit = async data => {
     try {
       await axios.post(`${process.env.REACT_APP_API}/queue/enqueue`,
       { 
-        patient: { ...activePatient, ...sanitizeFormInput(data)}, 
+        patient: { ...activePatient, ...sanitizeFormInput(data), admission_date: new Date()}, 
         priority: priority 
       });
       handleClose()
@@ -39,44 +40,22 @@ const VisitForm = ({handleClose}) => {
   return (
     isAuthenticated && userRole === 'triage' || userRole === 'provider'
      ? <>
-        <h2> Select Queue </h2>
+        <h2>Select Queue</h2>
         <QueueForm setPriority={setPriority}/>
-        <h2> Visit Information </h2>
+        <h2>Visit Information</h2>
         <form onSubmit={ handleSubmit(onSubmit) }>
           <div className="input-items">
-            {/* <Input 
-              type="number" 
-              placeholder="patient id" 
-              {...register("patient_id", {required: true, maxLength: 80})} 
-            /> */}
-            <div>
-              <InputLabel>Admission Date</InputLabel>
-              <Input 
-                type="date" 
-                placeholder="Admission date" 
-                {...register("admission_date", {required: true, maxLength: 100})} 
-              />
-            </div>
-            {/* <Input 
-              type="date"
-              title="discharge date"
-              // placeholder="discharge date" 
-              {...register("discharge_date", {required: true, maxLength: 100})} 
-            /> */}
-            <div>
-              <InputLabel>Notes</InputLabel>
-              <Input
-                type="text"
-                multiline={true}
-                placeholder="Reason For Visit" 
-                {...register("primary_ailment", {required: true, maxLength: 500})} 
-              />
-            </div>
-            {/* <Input
-              type="text" 
-              placeholder="room" 
-              {...register("room", {required: false, maxLength: 100})} 
-            /> */}
+            <InputLabel>Notes</InputLabel>
+            <TextField
+              variant="outlined"
+              id="outlined-basic"
+              type="text"
+              fullWidth
+              multiline
+              rows={4}
+              placeholder="Reason For Visit"
+              {...register("primary_ailment", { required: true, maxLength: 500 })}
+            />
           </div> 
           <div className="submit-button">
             <Button onClick={handleSubmit(onSubmit)}>Submit</Button>
@@ -87,4 +66,4 @@ const VisitForm = ({handleClose}) => {
   );
 }
 
-export default VisitForm;
+export default AddVisitForm;

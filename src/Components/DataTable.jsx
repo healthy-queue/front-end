@@ -47,6 +47,7 @@ export default function DataTable() {
         pageSize={10}
         rowsPerPageOptions={[10]}
         sx={{
+          minHeight: '65vh',
           borderRadius: 3,
           boxShadow: 2,
           border: 2,

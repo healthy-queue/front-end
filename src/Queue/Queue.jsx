@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Grid from '@material-ui/core/Grid';
-import ReassignmentModal from './ReassignmentModal.jsx'
+import AssignmentModal from './AssignmentModal.jsx'
 import NextPatient from './NextPatient'
 
 const columns = [
@@ -17,7 +17,7 @@ const columns = [
     type: "number",
     width: 130,
     disableClickEventBubbling: true,
-    renderCell: (field) => < ReassignmentModal />
+    renderCell: (field) => < AssignmentModal reassignment={true}/>
   }
 ];
 
@@ -31,15 +31,15 @@ const columns = [
 
 const Queue = ({ data }) => {
   return (
-    <div style={{ minHeight: 400, width: '100%' }}>
+    <div style={{ width: '100%' }}>
       <DataGrid
-        autoHeight
         autoWidth
-        rows={ data }
+        rows={data}
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}
         sx={{
+          minHeight: '65vh',
           borderRadius: 3,
           boxShadow: 2,
           border: 2,
