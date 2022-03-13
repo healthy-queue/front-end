@@ -28,11 +28,17 @@ const ProcessPatient = () => {
   const { register, handleSubmit, formState: { errors }} = useForm();
 
   const onSubmit = async data => {
+    const newVisit = {...data, patient_id: activeP['id']}
+    console.log('@@',newVisit)
     try {
       await axios
-        .post(`${process.env.REACT_APP_API}/queue/enqueue`,{
-          patient: { ...activeP, ...sanitizeFormInput(data)}
+        .post(`${process.env.REACT_APP_API}/visit`,{
+        ...newVisit, ...sanitizeFormInput(newVisit)
         });
+
+        // .post(`${process.env.REACT_APP_API}/queue/enqueue`,{
+        //   patient: { ...activeP, ...sanitizeFormInput(data)}
+        // });
     } catch (e) {
       console.error(e)
     }
@@ -93,7 +99,7 @@ const ProcessPatient = () => {
         </Card>
 
         <Card>
-          <h2> New Visit Information </h2>
+          <h2> New Visit </h2>
           <CardContent>
             <Typography 
               sx={{ fontSize: 15 }} 
@@ -108,8 +114,7 @@ const ProcessPatient = () => {
                       type="date" 
                       placeholder="Admission date" 
                       {...register("admission_date", {required: true, maxLength: 100})}
-                    />
-                    
+                    /> 
                   </div>
                   <div>
                     <InputLabel>Notes</InputLabel>
@@ -122,13 +127,19 @@ const ProcessPatient = () => {
                   </div>
                 </div> 
                 <div className="submit-button">
-                  <Button onClick={handleSubmit(onSubmit)}>Submit</Button>
+                  <Button
+                    color="success"
+                    size="medium"
+                    variant="contained" 
+                    onClick={handleSubmit(onSubmit)}
+                  >Submit
+                  </Button>
                 </div>
               </form>
             </Typography>
           </CardContent>
         </Card>
-
+        <br/>
         <Button 
             color="error"
             onClick={() => onExit() }
