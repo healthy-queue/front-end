@@ -11,7 +11,7 @@ const CreatePatient = ({ handleClose }) => {
   const { isAuthenticated, user } = useAuth0();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = async (data, props) => {
+  const onSubmit = async data => {
     await axios.post(`${process.env.REACT_APP_API}/patient`, sanitizeFormInput(data));
     handleClose()
   }
