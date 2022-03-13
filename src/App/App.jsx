@@ -19,7 +19,7 @@ function App() {
     } catch (e) {
       console.warn('Error connecting to Socket.io server: ', e)
     }
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="App">
