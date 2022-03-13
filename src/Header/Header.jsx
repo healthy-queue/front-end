@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -28,7 +28,7 @@ const Header = () => {
 
   // TODO: lets see about using roles more better - Set user roles in Auth0
   // https://manage.auth0.com/dashboard/us/<Auth0 Domain>/users
-  const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
+  const userRole = ((user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general')
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -51,7 +51,6 @@ const Header = () => {
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-            
           >
             HealthyQ
           </Typography>
@@ -84,16 +83,16 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >            
-                {pages[userRole].map((page) => (
-                  <MenuItem
-                    onClick={handleCloseNavMenu}
-                    key={page.displayName}
-                    component={Link}
-                    to={`${page.path}`}
-                  >
-                  {page.displayName}
-                  </MenuItem>
-                ))}
+              {pages[userRole].map((page) => (
+                <MenuItem
+                  onClick={handleCloseNavMenu}
+                  key={page.displayName}
+                  component={Link}
+                  to={`${page.path}`}
+                >
+                {page.displayName}
+                </MenuItem>
+              ))}
             </Menu>
           </Box>
           <Typography
@@ -143,11 +142,6 @@ const Header = () => {
                   onClose={handleCloseUserMenu}
                 >
                 <MenuItem onClick={() => logout({ returnTo: window.location.origin })}>Logout</MenuItem>
-                {/* {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
-                ))} */}
                 </Menu>
               </>
             : <MenuItem onClick={() => loginWithRedirect()}>Login</MenuItem>

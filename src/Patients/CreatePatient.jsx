@@ -9,7 +9,7 @@ const axios = require('axios');
 
 const CreatePatient = ({ handleClose }) => {
   const { isAuthenticated, user } = useAuth0();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = async data => {
     await axios.post(`${process.env.REACT_APP_API}/patient`, sanitizeFormInput(data));
@@ -19,7 +19,7 @@ const CreatePatient = ({ handleClose }) => {
   // TODO: lets see about using roles more better - Set user roles in Auth0
   // https://manage.auth0.com/dashboard/us/<Auth0 Domain>/users
 
-  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
+  const userRole = ((user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general')
   
   return (
     isAuthenticated && userRole === 'triage'

@@ -4,15 +4,16 @@ import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { useStyles } from "../Constants/theme";
 import CreatePatient from './CreatePatient';
-// import { spacing } from '@mui/system';
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 600,
-  height: 450,
+  maxWidth: 600,
+  maxHeight: 450,
+  minWidth: 200,
+  minHeight: 250,
   borderRadius: 5,
   bgcolor: 'background.paper',
   border: '2px solid #000',
@@ -28,13 +29,13 @@ const CreatePatientModal = () => {
 
 return(
   <>
-  <Box>
-    <AddCircleIcon 
-      className={classes.icon}
-      color="000000"
-      onClick={ handleOpen }
-    />
-  </Box>
+    <Box>
+      <AddCircleIcon 
+        className={classes.icon}
+        color="000000"
+        onClick={ handleOpen }
+      />
+    </Box>
     <Modal
       open={ open }
       onClose={ handleClose }

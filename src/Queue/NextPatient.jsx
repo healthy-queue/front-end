@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const NextPatient = () => {
   const { isAuthenticated, user } = useAuth0();
-  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
+  const userRole = ((user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general')
 
   const navigate = useNavigate()
 
@@ -25,7 +25,7 @@ const NextPatient = () => {
           > next 
           </Button>
         </>
-      :null
+      : null
   )
 }
 

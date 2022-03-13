@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import VisitForm from "../Visit/VisitForm"
+import AddVisitForm from "../Visit/AddVisitForm";
+import EditPriorityForm from "../Queue/EditPriorityForm";
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 
@@ -9,8 +10,8 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 600,
-  height: 450,
+  maxWidth: 600,
+  maxHeight: 450,
   borderRadius: 5,
   bgcolor: 'background.paper',
   border: '2px solid #000',
@@ -18,7 +19,7 @@ const style = {
   p: 4,
 };
 
-const ReassignmentModal = () => {
+const AssignmentModal = ({ reassignment }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -29,6 +30,7 @@ return(
       color="primary"
       onClick={ handleOpen }
       size="small"
+      disableClickEventBubbling={false}
       variant="contained"
     >reassign
     </Button>
@@ -39,10 +41,10 @@ return(
       aria-describedby="modal-modal-description"
     >
     <Box sx={style}>
-      <VisitForm />
+      { reassignment ? <EditPriorityForm handleClose={handleClose}/> : <AddVisitForm /> }
     </Box>
     </Modal>
   </>
 )
 }
-export default ReassignmentModal;
+export default AssignmentModal;

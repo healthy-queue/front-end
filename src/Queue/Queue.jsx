@@ -1,8 +1,10 @@
-import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
 import Grid from '@material-ui/core/Grid';
-import ReassignmentModal from './ReassignmentModal.jsx'
-import NextPatient from './NextPatient'
+import { DataGrid } from '@mui/x-data-grid';
+import React from 'react';
+import AssignmentModal from './AssignmentModal.jsx';
+import NextPatient from './NextPatient';
+import { setActiveQueueItem } from './reducer';
+import { useDispatch } from 'react-redux';
 
 const columns = [
   { field: 'id', headerName: 'id', width: 70 },
@@ -17,28 +19,23 @@ const columns = [
     type: "number",
     width: 130,
     disableClickEventBubbling: true,
-    renderCell: () => < ReassignmentModal />
+    renderCell: (field) => < AssignmentModal reassignment={true}/>
   }
 ];
 
-// // Mock Data
-// const rows = [
-//   { id: 1, first_name:'name'}, 
-//   { id: 2, first_name:'name'}, 
-//   { id: 3, first_name:'name'}, 
-// ];
-
 const Queue = ({ data }) => {
+  const dispatch = useDispatch();
   return (
-    <div style={{ minHeight: 400, width: '100%' }}>
+    <div style={{ width: '100%' }}>
       <DataGrid
-        autoHeight
+        onRowClick={(event) => { dispatch(setActiveQueueItem(event.row))}}
         autoWidth
-        rows={ data }
+        rows={data}
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}
         sx={{
+          minHeight: '65vh',
           borderRadius: 3,
           boxShadow: 2,
           border: 2,

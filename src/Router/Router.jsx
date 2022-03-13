@@ -1,11 +1,11 @@
+import Container from '@material-ui/core/Container';
+import { Route, Routes } from 'react-router-dom';
 import About from '../About/About';
-import Container from '@material-ui/core/Container'
 import Home from '../Home/Home';
 import PatientTable from '../Patients/PatientTable';
 import QueueContainer from '../Queue/QueueContainer';
 import ProcessPatient from '../Patients/ProcessPatient';
 
-import { Routes, Route } from 'react-router-dom';
 
 const MyRouter = () => {
   return (
