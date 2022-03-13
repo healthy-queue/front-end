@@ -41,7 +41,6 @@ export default function DataTable() {
     <div style={{ minHeight: 400, width: "100%" }}>
       <DataGrid
         onRowClick={(event) => {dispatch(setActivePatient(event.row.id))}}
-        autoHeight
         rows={patients} // Swap in mockData for layout testing
         columns={columns}
         pageSize={10}
