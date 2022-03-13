@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import VisitForm from "./VisitForm"
+import AddVisitForm from "./AddVisitForm"
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 
@@ -39,7 +39,7 @@ return(
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <VisitForm handleClose={handleClose}/>
+        <AddVisitForm handleClose={handleClose}/>
       </Box>
     </Modal>
   </>
