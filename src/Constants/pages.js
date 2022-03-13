@@ -19,14 +19,6 @@ export const pages = {
   ],
   provider: [
     {
-      displayName: 'Home',
-      path: '/'
-    },
-    {
-      displayName: 'About',
-      path: '/about'
-    },
-    {
       displayName: 'Queue',
       path: '/queue'
     }
