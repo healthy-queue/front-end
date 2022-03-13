@@ -13,6 +13,7 @@ const PatientTable = () => {
     isAuthenticated && userRole === 'triage' || userRole === 'provider'
       ? <>
         <h2> All Registered Patients </h2>
+          <DataTable />
         <Grid container item direction="row" >
           <Grid
             item
@@ -23,7 +24,6 @@ const PatientTable = () => {
           ><CreatePatientModal />
           </Grid>
         </Grid>
-        <DataTable />
       </>
     : null
   );
