@@ -17,7 +17,7 @@ const columns = [
     type: "number",
     width: 130,
     disableClickEventBubbling: true,
-    renderCell: (field) => < ReassignmentModal />
+    renderCell: () => < ReassignmentModal />
   }
 ];
 
@@ -27,7 +27,6 @@ const columns = [
 //   { id: 2, first_name:'name'}, 
 //   { id: 3, first_name:'name'}, 
 // ];
-
 
 const Queue = ({ data }) => {
   return (
@@ -50,16 +49,19 @@ const Queue = ({ data }) => {
         }}
       />
       <br/>
-      <Grid container item direction="row" >
-        <Grid
-          item
-          container
-          direction="column"
-          alignItems="flex-end"
-          justifyContent="flex-end"
-        > <NextPatient />
-        </Grid>
-      </Grid>
+        { data.length
+           ?<Grid container item direction="row" >
+              <Grid
+                item
+                container
+                direction="column"
+                alignItems="flex-end"
+                justifyContent="flex-end"
+                > <NextPatient />
+              </Grid>
+            </Grid>
+            :null
+         }
     </div>
   );
 }

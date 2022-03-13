@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useAuth0 } from '@auth0/auth0-react'
 import Button from '@mui/material/Button'
 import Input from '@mui/material/Input'
@@ -7,15 +8,13 @@ import { useForm } from 'react-hook-form'
 import QueueForm from '../Queue/QueueForm'
 import { sanitizeFormInput } from '../utils/sanitizeFormInput'
 import { useSelector } from 'react-redux';
-const axios = require('axios');
-
 
 const VisitForm = ({handleClose}) => {
   const [priority, setPriority] = useState('');
   const activePatient = useSelector(state => state.patients.activePatient)
   
   const { isAuthenticated, user } = useAuth0();
-  const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
+  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
   
   // TODO: do something with the errors - Stretch
   const { register, handleSubmit, formState: { errors }} = useForm();
@@ -37,7 +36,7 @@ const VisitForm = ({handleClose}) => {
   // https://manage.auth0.com/dashboard/us/<Auth0 Domain>/users
   // patient_id and primary_aliment        
   return (
-    isAuthenticated && userRole === 'triage' || userRole === 'provider'
+    isAuthenticated && (userRole === 'triage' || userRole === 'provider')
      ? <>
         <h2> Select Queue </h2>
         <QueueForm setPriority={setPriority}/>
