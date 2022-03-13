@@ -13,13 +13,13 @@ function App() {
   // Adding Socket.io listeners in a use effect on app mount to avoid multiple listeners being created
   useEffect(() => {
     try {
-      const socket = io.connect(process.env.REACT_APP_SOCKET_IO || 'http://localhost:8000')
+      const socket = io.connect(process.env.REACT_APP_API || 'http://localhost:3001')
       socket.on('refetch queue', () => dispatch(fetchAllQueues()))
       socket.on('refetch patients', () => dispatch(fetchAllPatients()))
     } catch (e) {
       console.warn('Error connecting to Socket.io server: ', e)
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">

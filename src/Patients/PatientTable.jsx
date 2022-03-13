@@ -7,10 +7,10 @@ import CreatePatientModal from './CreatePatientModal';
 
 const PatientTable = () => {
   const { isAuthenticated, user } = useAuth0();
-  const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
+  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
 
   return (
-    isAuthenticated && userRole === 'triage' || userRole === 'provider'
+    isAuthenticated && (userRole === 'triage' || userRole === 'provider')
       ? <>
         <h2> All Registered Patients </h2>
           <DataTable />
