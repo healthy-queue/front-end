@@ -48,5 +48,17 @@ export const useStyles = makeStyles((theme) => ({
   unorderedLists:{
     listStyle:'none',
     listStyleType:'none'
-  }
+  },
+  formRoot:{
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: '25ch',
+  },
+  root: {
+    flexGrow: 1,
+  },
 }));
