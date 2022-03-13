@@ -1,10 +1,10 @@
 import Grid from '@material-ui/core/Grid';
 import { DataGrid } from '@mui/x-data-grid';
-import React, { useEffect } from 'react';
+import React from 'react';
 import AssignmentModal from './AssignmentModal.jsx';
 import NextPatient from './NextPatient';
 import { setActiveQueueItem } from './reducer';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const columns = [
   { field: 'id', headerName: 'id', width: 70 },
