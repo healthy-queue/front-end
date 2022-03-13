@@ -5,7 +5,6 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import React, { useState } from 'react'
-// import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 const axios = require('axios');
 
@@ -16,9 +15,6 @@ const EditPriorityForm = ({handleClose}) => {
   
   const { isAuthenticated, user } = useAuth0();
   const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
-  
-  // // TODO: do something with the errors - Stretch
-  // const { register, handleSubmit, formState: { errors }} = useForm();
 
   const onSubmit = async () => {
     try {

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
 import Grid from '@material-ui/core/Grid';
-import AssignmentModal from './AssignmentModal.jsx'
-import NextPatient from './NextPatient'
+import { DataGrid } from '@mui/x-data-grid';
+import * as React from 'react';
+import AssignmentModal from './AssignmentModal.jsx';
+import NextPatient from './NextPatient';
 
 const columns = [
   { field: 'id', headerName: 'id', width: 70 },
@@ -20,14 +20,6 @@ const columns = [
     renderCell: (field) => < AssignmentModal reassignment={true}/>
   }
 ];
-
-// // Mock Data
-// const rows = [
-//   { id: 1, first_name:'name'}, 
-//   { id: 2, first_name:'name'}, 
-//   { id: 3, first_name:'name'}, 
-// ];
-
 
 const Queue = ({ data }) => {
   return (

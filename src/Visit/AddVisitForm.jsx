@@ -1,12 +1,12 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import Button from '@mui/material/Button'
 import InputLabel from '@mui/material/InputLabel'
+import TextField from '@mui/material/TextField'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux'
 import QueueForm from '../Queue/QueueForm'
 import { sanitizeFormInput } from '../utils/sanitizeFormInput'
-import { useSelector } from 'react-redux';
-import TextField from '@mui/material/TextField'
 const axios = require('axios');
 
 
@@ -15,7 +15,7 @@ const AddVisitForm = ({handleClose}) => {
   const activePatient = useSelector(state => state.patients.activePatient)
   
   const { isAuthenticated, user } = useAuth0();
-  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
+  const userRole = ((user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general')
   
   // TODO: do something with the errors - Stretch
   const { register, handleSubmit} = useForm();

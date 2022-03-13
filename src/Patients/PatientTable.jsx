@@ -11,7 +11,7 @@ const axios = require('axios');
 const PatientTable = () => {
   const dispatch = useDispatch()
   const { isAuthenticated, user } = useAuth0();
-  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
+  const userRole = ((user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general')
 
   // Get Patients on initial load
   useEffect(() => {
@@ -21,6 +21,7 @@ const PatientTable = () => {
       dispatch(setPatients(result.data))
     }
     fetchData().catch(console.error)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

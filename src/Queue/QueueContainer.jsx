@@ -10,7 +10,7 @@ const axios = require('axios');
 const QueueContainer = () => {
   const dispatch = useDispatch()
   const { isAuthenticated, user } = useAuth0();
-  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
+  const userRole = ((user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general')
 
   // Get Queue on initial load
   useEffect(() => {
@@ -20,6 +20,7 @@ const QueueContainer = () => {
       dispatch(setQueue(result.data))
     }
     fetchData().catch(console.error)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
   
