@@ -29,13 +29,13 @@ const CreatePatientModal = () => {
 
 return(
   <>
-  <Box>
-    <AddCircleIcon 
-      className={classes.icon}
-      color="000000"
-      onClick={ handleOpen }
-    />
-  </Box>
+    <Box>
+      <AddCircleIcon 
+        className={classes.icon}
+        color="000000"
+        onClick={ handleOpen }
+      />
+    </Box>
     <Modal
       open={ open }
       onClose={ handleClose }

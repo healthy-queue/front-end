@@ -1,8 +1,10 @@
 import Grid from '@material-ui/core/Grid';
 import { DataGrid } from '@mui/x-data-grid';
-import * as React from 'react';
+import React from 'react';
 import AssignmentModal from './AssignmentModal.jsx';
 import NextPatient from './NextPatient';
+import { setActiveQueueItem } from './reducer';
+import { useDispatch } from 'react-redux';
 
 const columns = [
   { field: 'id', headerName: 'id', width: 70 },
@@ -22,9 +24,11 @@ const columns = [
 ];
 
 const Queue = ({ data }) => {
+  const dispatch = useDispatch();
   return (
     <div style={{ width: '100%' }}>
       <DataGrid
+        onRowClick={(event) => { dispatch(setActiveQueueItem(event.row))}}
         autoWidth
         rows={data}
         columns={columns}
