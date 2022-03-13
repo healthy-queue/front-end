@@ -11,7 +11,7 @@ const axios = require('axios');
 
 const EditPriorityForm = ({handleClose}) => {
   const [priority, setPriority] = useState('');
-  const activePatient = useSelector(state => state.patients.activePatient)
+  const activeQueueItem = useSelector(state => state.queue.activeQueueItem)
   
   const { isAuthenticated, user } = useAuth0();
   const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
@@ -21,7 +21,7 @@ const EditPriorityForm = ({handleClose}) => {
       console.log('Submitting queue change')
       await axios.post(`${process.env.REACT_APP_API}/queue/change-priority`,
       { 
-        patient: activePatient, 
+        patient: activeQueueItem, 
         priority: priority 
       });
       handleClose()

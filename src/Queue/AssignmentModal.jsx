@@ -30,6 +30,7 @@ return(
       color="primary"
       onClick={ handleOpen }
       size="small"
+      disableClickEventBubbling={false}
       variant="contained"
     >reassign
     </Button>
@@ -40,7 +41,7 @@ return(
       aria-describedby="modal-modal-description"
     >
     <Box sx={style}>
-      { reassignment ? <EditPriorityForm /> : <AddVisitForm /> }
+      { reassignment ? <EditPriorityForm handleClose={handleClose}/> : <AddVisitForm /> }
     </Box>
     </Modal>
   </>
