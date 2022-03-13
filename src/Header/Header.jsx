@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -29,7 +29,7 @@ const Header = () => {
   // TODO: lets see about using roles more better - Set user roles in Auth0
   // https://manage.auth0.com/dashboard/us/<Auth0 Domain>/users
   console.log('Auth0 User info', user)
-  const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
+  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);

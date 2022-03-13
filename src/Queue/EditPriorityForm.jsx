@@ -5,7 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
+// import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 const axios = require('axios');
 
@@ -15,7 +15,7 @@ const EditPriorityForm = ({handleClose}) => {
   const activePatient = useSelector(state => state.patients.activePatient)
   
   const { isAuthenticated, user } = useAuth0();
-  const userRole = user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0] || 'general'
+  const userRole = (user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general'
   
   // // TODO: do something with the errors - Stretch
   // const { register, handleSubmit, formState: { errors }} = useForm();
@@ -38,7 +38,7 @@ const EditPriorityForm = ({handleClose}) => {
   // https://manage.auth0.com/dashboard/us/<Auth0 Domain>/users
   // patient_id and primary_aliment        
   return (
-    isAuthenticated && userRole === 'triage' || userRole === 'provider'
+    isAuthenticated && (userRole === 'triage' || userRole === 'provider')
      ? <form style={{maxHeight: 300}}>
         <h2>Select Queue</h2>
         <FormControl>
