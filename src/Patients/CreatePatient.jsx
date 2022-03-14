@@ -26,7 +26,7 @@ const CreatePatient = ({ handleClose }) => {
       ? <>
         <h2> Add Patient Info </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="input-items">
+          <div className="add-patient-input-items">
             <Input type="text" placeholder="First name" {...register("first_name", { required: true, maxLength: 80 })} />
             <Input type="text" placeholder="Last name" {...register("last_name", { required: true, maxLength: 100 })} />
             <Input type="datetime" placeholder="Date of Birth" {...register("date_of_birth", { require: true })} />
