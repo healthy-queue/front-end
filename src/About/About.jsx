@@ -38,7 +38,7 @@ const About = () => {
       <h2 style={{ textAlign: "center" }}>Who are we?</h2>
       <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
         {authors.map((author, i) =>
-          <Card key={i} sx={{ maxWidth: 400 }}>
+          <Card key={i} sx={{ maxWidth: 400, boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}>
             <CardMedia
               component="img"
               height="400"
