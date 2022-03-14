@@ -11,7 +11,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   maxWidth: 600,
-  maxHeight: 450,
+  height: 'auto',
   borderRadius: 5,
   bgcolor: 'background.paper',
   border: '2px solid #000',
@@ -24,27 +24,27 @@ const AssignmentModal = ({ reassignment }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-return(
-  <>
-    <Button 
-      color="primary"
-      onClick={ handleOpen }
-      size="small"
-      disableClickEventBubbling={false}
-      variant="contained"
-    >reassign
-    </Button>
-    <Modal
-      open={ open }
-      onClose={ handleClose }
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-    <Box sx={style}>
-      { reassignment ? <EditPriorityForm handleClose={handleClose}/> : <AddVisitForm /> }
-    </Box>
-    </Modal>
-  </>
-)
+  return (
+    <>
+      <Button
+        color="primary"
+        onClick={handleOpen}
+        size="small"
+        disableClickEventBubbling={false}
+        variant="contained"
+      >reassign
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          {reassignment ? <EditPriorityForm handleClose={handleClose} /> : <AddVisitForm />}
+        </Box>
+      </Modal>
+    </>
+  )
 }
 export default AssignmentModal;
