@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import React, { useState, useEffect } from "react";
-import TextField from '@material-ui/core/TextField';
 import Typography from "@mui/material/Typography";
 import { useForm } from "react-hook-form";
 import { sanitizeFormInput } from "../utils/sanitizeFormInput";
@@ -30,6 +29,7 @@ const ProcessPatient = () => {
   const {
     register,
     handleSubmit,
+    // eslint-disable-next-line no-unused-vars
     formState: { errors },
   } = useForm();
 
