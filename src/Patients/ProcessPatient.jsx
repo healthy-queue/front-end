@@ -74,7 +74,7 @@ const ProcessPatient = () => {
               color="text.primary"
               sx={{ fontSize: 15 }} 
             >
-              Hello, you are now seeing {activePatient.last_name} {activePatient.first_name}
+              Hello, you are now seeing {activePatient.first_name} {activePatient.last_name}
             </Typography>
           </CardContent>
         </Card>

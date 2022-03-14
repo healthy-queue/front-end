@@ -16,7 +16,7 @@ export const fetchAllQueues = createAsyncThunk(
 
 const initialState = {
   activeQueueItem: {},
-  queue: {},
+  queue: { "red": [], "yellow": [], "green": []},
   status: ''
 }
 
