@@ -70,7 +70,7 @@ export default function QueueTabs() {
 
   const [selectedQueue, setSelectedQueue] = useState('red')
 
-  let queueData = useSelector(state => state.queue.queue)[selectedQueue] 
+  let queueData = useSelector(state => state.queue.queue)[selectedQueue] ?? []
   const handleTabClick = (target) => {
     setSelectedQueue(target)
   }
