@@ -18,14 +18,15 @@ const style = {
   p: 4,
 };
 
-const VisitsModal = () => {
+const VisitsModal = ({enqueued}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
 return(
   <>
-    <Button 
+    <Button
+      disabled={enqueued}
       color="primary"
       onClick={ handleOpen }
       size="small"

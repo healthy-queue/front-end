@@ -22,11 +22,12 @@ const AddVisitForm = ({handleClose}) => {
 
   const onSubmit = async data => {
     try {
+      await axios.put(`${process.env.REACT_APP_API}/patient/${activePatient.id}`, { enqueued: true })
       await axios.post(`${process.env.REACT_APP_API}/queue/enqueue`,
-      { 
-        patient: { ...activePatient, ...sanitizeFormInput(data), admission_date: new Date()}, 
-        priority: priority 
-      });
+        { 
+          patient: { ...activePatient, ...sanitizeFormInput(data)}, 
+          priority: priority 
+        });
       handleClose()
     } catch (e) {
       console.error(e)

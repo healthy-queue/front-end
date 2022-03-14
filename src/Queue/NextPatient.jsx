@@ -10,7 +10,8 @@ const NextPatient = () => {
   const navigate = useNavigate()
 
   const handleDequeue = async () => {
-    await axios.post(`${process.env.REACT_APP_API}/queue/dequeue`);
+    let result = await axios.post(`${process.env.REACT_APP_API}/queue/dequeue`);
+    await axios.put(`${process.env.REACT_APP_API}/patient/${result.data.id}`, { enqueued: false })
     navigate('/process')
   }
 
