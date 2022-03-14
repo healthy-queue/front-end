@@ -73,8 +73,8 @@ const ProcessPatient = () => {
             </Typography>
           </CardContent>
         </Card>
-        <div classes={classes.root}>
-          <Grid container spacing={40}>
+        <div className={classes.root}>
+          <Grid container spacing={10}>
 
             <Grid item xs={6}>
               <h2>Previous Visits: </h2>
@@ -82,20 +82,20 @@ const ProcessPatient = () => {
                   {visit
                     ? visit.map((pat) => (
                         <Card 
-                          classes={classes.card}
+                          className={classes.card}
                           key={parseInt(pat.id)} 
                         >
                           <h5> Reported Ailment:{" "}{pat.primary_ailment}</h5>
                           <h5> Visit Notes:{" "}{pat.notes}</h5>
-                          <p>
+                          <Typography>
                             Visit Date:{" "}
                             {new Date(pat.admission_date).toLocaleString("en-US")}
-                          </p>
-                          <p>
+                          </Typography>
+                          <Typography>
                             {" "}
                             Dischared Date:{" "}
                             {new Date(pat.discharge_date).toLocaleString("en-US")}
-                          </p>
+                          </Typography>
                         </Card>
                       ))
                     : null}

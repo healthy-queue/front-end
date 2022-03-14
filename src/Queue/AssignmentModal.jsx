@@ -30,7 +30,6 @@ const AssignmentModal = ({ reassignment }) => {
         color="primary"
         onClick={handleOpen}
         size="small"
-        disableClickEventBubbling={false}
         variant="contained"
       >reassign
       </Button>
