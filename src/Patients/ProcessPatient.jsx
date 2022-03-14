@@ -58,14 +58,18 @@ const ProcessPatient = () => {
     }
   };
   useEffect(() => getPriorVisits(activeP["id"]), [activeP]);
-
+  console.log('VISIT',visit && visit.length)
   return isAuthenticated &&
     (userRole === "triage" || userRole === "provider") ? (
     <>
       <Container alignment="center" component="main" maxWidth="lg">
         <Card>
           <CardContent>
-            <Typography sx={{ fontSize: 15 }} color="text.secondary" gutterBottom>
+            <Typography 
+              align="center"
+              color="text.primary"
+              sx={{ fontSize: 15 }} 
+            >
               Hello, you are now seeing{" "}{activeP.last_name.toUpperCase()},{" "}{activeP.first_name.toUpperCase()}
             </Typography>
           </CardContent>
@@ -76,16 +80,14 @@ const ProcessPatient = () => {
             <Grid item xs={6}>
               <h2>Previous Visits: </h2>
               <CardContent>
-                <Typography
-                  align="center"
-                  sx={{ fontSize: 15 }}
-                  color="text.secondary"
-                  gutterBottom
-                >
                   {visit
                     ? visit.map((pat) => (
-                        <Card key={parseInt(pat.id)} classes={classes.card}>
-                          <h5> Reported Ailment: {pat.primary_aliment}</h5>
+                        <Card 
+                          classes={classes.card}
+                          key={parseInt(pat.id)} 
+                        >
+                          <h5> Reported Ailment: {pat.primary_ailment}</h5>
+                          <h5> Visit Notes: {pat.notes}</h5>
                           <p>
                             Visit Date:{" "}
                             {new Date(pat.admission_date).toLocaleString("en-US")}
@@ -98,7 +100,7 @@ const ProcessPatient = () => {
                         </Card>
                       ))
                     : null}
-                </Typography>
+
               </CardContent>
             </Grid>
 
