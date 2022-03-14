@@ -6,8 +6,8 @@ form {
   padding: 20px 0;
 }
 
-[class^=MuiInput] {
-  margin: 20px 10px;
+div.add-patient-input-items [class^=MuiInput] {
+  margin: 10px;
 }
 
 .submit-button {
