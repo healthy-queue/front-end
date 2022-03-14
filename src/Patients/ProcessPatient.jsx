@@ -58,9 +58,8 @@ const ProcessPatient = () => {
     }
   };
   useEffect(() => getPriorVisits(activeP["id"]), [activeP]);
-  console.log('VISIT',visit && visit.length)
   return isAuthenticated &&
-    (userRole === "triage" || userRole === "provider") ? (
+    (userRole === "provider") ? (
     <>
       <Container alignment="center" component="main" maxWidth="lg">
         <Card>
@@ -86,8 +85,8 @@ const ProcessPatient = () => {
                           classes={classes.card}
                           key={parseInt(pat.id)} 
                         >
-                          <h5> Reported Ailment: {pat.primary_ailment}</h5>
-                          <h5> Visit Notes: {pat.notes}</h5>
+                          <h5> Reported Ailment:{" "}{pat.primary_ailment}</h5>
+                          <h5> Visit Notes:{" "}{pat.notes}</h5>
                           <p>
                             Visit Date:{" "}
                             {new Date(pat.admission_date).toLocaleString("en-US")}
