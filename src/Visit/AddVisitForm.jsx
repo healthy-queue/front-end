@@ -30,6 +30,7 @@ const AddVisitForm = ({handleClose}) => {
         });
       handleClose()
     } catch (e) {
+      await axios.put(`${process.env.REACT_APP_API}/patient/${activePatient.id}`, { enqueued: false })
       console.error(e)
     }
   }
