@@ -1,9 +1,13 @@
-import axios from 'axios'
-import Button from '@mui/material/Button';
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate } from 'react-router-dom'
+import Button from '@mui/material/Button';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setActivePatient } from '../Patients/reducer';
 
 const NextPatient = () => {
+  // Grab activePatient from redux
+  const dispatch = useDispatch()
   const { isAuthenticated, user } = useAuth0();
   const userRole = ((user && user['http://localhost:3000/role'] && user['http://localhost:3000/role'][0]) || 'general')
 
@@ -12,6 +16,8 @@ const NextPatient = () => {
   const handleDequeue = async () => {
     let result = await axios.post(`${process.env.REACT_APP_API}/queue/dequeue`);
     await axios.put(`${process.env.REACT_APP_API}/patient/${result.data.id}`, { enqueued: false })
+    // Set Active patient
+    dispatch(setActivePatient(result.data.id))
     navigate('/process')
   }
 

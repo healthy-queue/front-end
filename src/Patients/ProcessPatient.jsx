@@ -16,6 +16,7 @@ import { useStyles } from "../Constants/theme";
 import { useNavigate } from "react-router-dom";
 
 const ProcessPatient = () => {
+  const [ submitted, setSubmitted] = useState(false)
   const classes = useStyles();
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuth0();
@@ -24,8 +25,8 @@ const ProcessPatient = () => {
       user["http://localhost:3000/role"] &&
       user["http://localhost:3000/role"][0]) ||
     "general";
-  const [visit, setVisit] = useState([]);
-  const activeP = useSelector((state) => state.patients.activePatient);
+  const [ visit, setVisit ] = useState([]);
+  const activePatient = useSelector((state) => state.patients.activePatient);
   const {
     register,
     handleSubmit,
@@ -34,12 +35,14 @@ const ProcessPatient = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const newVisit = { ...data, patient_id: activeP["id"] };
     try {
+      const newVisit = { ...data, patient_id: activePatient.id };
       await axios.post(`${process.env.REACT_APP_API}/visit`, {
         ...newVisit,
         ...sanitizeFormInput(newVisit),
       });
+      getPriorVisits(activePatient.id)
+      setSubmitted(true)
     } catch (e) {
       console.error(e);
     }
@@ -57,7 +60,7 @@ const ProcessPatient = () => {
       console.error({ err: err.message });
     }
   };
-  useEffect(() => getPriorVisits(activeP["id"]), [activeP]);
+  useEffect(() => getPriorVisits(activePatient.id), []);
   return isAuthenticated &&
     (userRole === "provider") ? (
     <>
@@ -69,7 +72,7 @@ const ProcessPatient = () => {
               color="text.primary"
               sx={{ fontSize: 15 }} 
             >
-              Hello, you are now seeing{" "}{activeP.last_name.toUpperCase()},{" "}{activeP.first_name.toUpperCase()}
+              Hello, you are now seeing {activePatient.last_name} {activePatient.first_name}
             </Typography>
           </CardContent>
         </Card>
@@ -77,11 +80,12 @@ const ProcessPatient = () => {
           <Grid container spacing={10}>
 
             <Grid item xs={6}>
-              <h2>Previous Visits: </h2>
+              <h2>Previous Visits:</h2>
               <CardContent>
                   {visit
                     ? visit.map((pat) => (
-                        <Card 
+                        <Card
+                          style={{padding: 10, margin: 0}} 
                           className={classes.card}
                           key={parseInt(pat.id)} 
                         >
@@ -91,11 +95,11 @@ const ProcessPatient = () => {
                             Visit Date:{" "}
                             {new Date(pat.admission_date).toLocaleString("en-US")}
                           </Typography>
-                          <Typography>
+                          {/* <Typography>
                             {" "}
                             Dischared Date:{" "}
                             {new Date(pat.discharge_date).toLocaleString("en-US")}
-                          </Typography>
+                          </Typography> */}
                         </Card>
                       ))
                     : null}
@@ -143,6 +147,7 @@ const ProcessPatient = () => {
                         />
                         <div className="submit-button">
                           <Button
+                            disabled={submitted}
                             color="success"
                             size="medium"
                             variant="contained"
