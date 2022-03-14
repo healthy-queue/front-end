@@ -60,6 +60,8 @@ const ProcessPatient = () => {
       console.error({ err: err.message });
     }
   };
+  // Netlify complains, but we just want this once
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getPriorVisits(activePatient.id), []);
   return isAuthenticated &&
     (userRole === "provider") ? (
