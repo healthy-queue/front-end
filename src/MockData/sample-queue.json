@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "first_name": "Lena",
+    "last_name": "West",
+    "date_of_birth": "01-28-91",
+    "time_entered": 1646523341000,
+    "injury": "Compound fracture"
+  },
+  {
+    "id": 2,
+    "first_name": "Alexious",
+    "last_name": "Johannes",
+    "date_of_birth": "06-01-00",
+    "time_entered": 1646524888052,
+    "injury": "Chest Pain"
+  },
+  {
+    "id": 3,
+    "first_name": "Terry",
+    "last_name": "Schmidt",
+    "date_of_birth": "05/25/94",
+    "time_entered": 1646519700000,
+    "injury": "Sprained Ankle"
+  },
+  {
+    "id": 4,
+    "first_name": "Abraham",
+    "last_name": "Greer",
+    "date_of_birth": "04-29-00",
+    "time_entered": 1646519520000,
+    "injury": "Ear ache"
+  },
+  {
+    "id": 5,
+    "first_name": "Zachary",
+    "last_name": "Gregory",
+    "date_of_birth": "04-29-93",
+    "time_entered": 1646524520000,
+    "injury": "Sore throat"
+  }
+]
