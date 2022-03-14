@@ -46,16 +46,19 @@ const Queue = ({ data }) => {
         }}
       />
       <br/>
-      <Grid container item direction="row" >
-        <Grid
-          item
-          container
-          direction="column"
-          alignItems="flex-end"
-          justifyContent="flex-end"
-        > <NextPatient />
-        </Grid>
-      </Grid>
+        { data.length
+           ?<Grid container item direction="row" >
+              <Grid
+                item
+                container
+                direction="column"
+                alignItems="flex-end"
+                justifyContent="flex-end"
+                > <NextPatient />
+              </Grid>
+            </Grid>
+            :null
+         }
     </div>
   );
 }
