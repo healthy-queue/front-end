@@ -15,7 +15,7 @@ const NextPatient = () => {
   }
 
   return(
-    isAuthenticated && (userRole === 'triage' || userRole === 'provider')
+    isAuthenticated && (userRole === 'provider')
       ? <>
           <Button 
             color="primary"
