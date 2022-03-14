@@ -4,6 +4,7 @@ import About from '../About/About';
 import Home from '../Home/Home';
 import PatientTable from '../Patients/PatientTable';
 import QueueContainer from '../Queue/QueueContainer';
+import ProcessPatient from '../Patients/ProcessPatient';
 
 
 const MyRouter = () => {
@@ -12,6 +13,7 @@ const MyRouter = () => {
       <Route path="/" element={ <Home /> } />
       <Route path="about" element={ <About /> } />
       <Route path="queue" element={ <QueueContainer /> } />
+      <Route path="process" element={ <ProcessPatient /> } />
       <Route path="patients" 
         element={ 
           <Container
@@ -23,6 +25,7 @@ const MyRouter = () => {
           </Container>
         } 
       />
+      {/* <Route path="process" element={  } */}
     </Routes>
   )
 }

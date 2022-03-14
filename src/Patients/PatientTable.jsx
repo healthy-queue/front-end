@@ -17,7 +17,6 @@ const PatientTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get(`${process.env.REACT_APP_API}/patients`)
-      console.log(result.data)
       dispatch(setPatients(result.data))
     }
     fetchData().catch(console.error)

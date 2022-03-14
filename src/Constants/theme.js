@@ -24,6 +24,11 @@ export const useStyles = makeStyles((theme) => ({
     },
     marginTop: '10px', 
   },
+  card: {
+    borderBottom: '10px',
+    borderRadius: '5px',
+    margin: '10px 10px 10px 10px',
+  },
   icon: {
     fontSize: 50
   },
@@ -39,5 +44,21 @@ export const useStyles = makeStyles((theme) => ({
   },
   dataTable: {
     marginBottom: '15px' ,
-  }
+  },
+  unorderedLists:{
+    listStyle:'none',
+    listStyleType:'none'
+  },
+  formRoot:{
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: '25ch',
+  },
+  root: {
+    flexGrow: 1,
+  },
 }));

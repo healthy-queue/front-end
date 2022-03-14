@@ -16,7 +16,6 @@ const QueueContainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get(`${process.env.REACT_APP_API}/queue`)
-      console.log(result.data)
       dispatch(setQueue(result.data))
     }
     fetchData().catch(console.error)
